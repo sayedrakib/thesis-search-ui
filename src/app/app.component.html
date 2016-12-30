@@ -2,4 +2,15 @@
   {{title}}
 </h1>
 <!--<ss-multiselect-dropdown [options]="myOptions" [(ngModel)]="selectedOptions" (ngModelChange)="onChange($event)"></ss-multiselect-dropdown>-->
-<s-multiselect-dropdown [options]="myOptions" [(ngModel)]="selectedOptions" (ngModelChange)="onChange($event)"></s-multiselect-dropdown>
+<!--<ss-multiselect-dropdown [options]="myOptions" [(ngModel)]="selectedOptions" (ngModelChange)="onChange($event)"></ss-multiselect-dropdown>-->
+		<div>
+			<h2>Default</h2>
+			<ss-multiselect-dropdown [options]="countries"></ss-multiselect-dropdown>
+			<h2>Glyphicons and check all/none</h2>
+			<ss-multiselect-dropdown [options]="countries" [settings]="selectSettings" [texts]="texts"></ss-multiselect-dropdown>
+			<h2>Search filter</h2>
+			<ss-multiselect-dropdown [options]="countries" [settings]="selectSettings2" [texts]="texts"></ss-multiselect-dropdown>
+			<h2>Default model, selection limit and no dynamic title</h2>
+			<!--<ss-multiselect-dropdown [options]="countries" [defaultModel]="selectedCountries" [settings]="selectSettings3" [texts]="texts"></ss-multiselect-dropdown>-->
+			<ss-multiselect-dropdown [options]="countries" [settings]="selectSettings3" [texts]="texts"></ss-multiselect-dropdown>
+	    </div>

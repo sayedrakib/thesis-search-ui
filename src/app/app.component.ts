@@ -1,43 +1,34 @@
 import { Component } from '@angular/core';
-import {MultiselectDropdown, IMultiSelectOption, IMultiSelectSettings, IMultiSelectTexts} from 'angular-2-dropdown-multiselect/src/multiselect-dropdown';
+import { MultiselectDropdown, IMultiSelectOption, IMultiSelectSettings, IMultiSelectTexts } from 'angular-2-dropdown-multiselect/src/multiselect-dropdown';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+	selector: 'app-root',
+	templateUrl: './app.component.html',
+	styleUrls: ['./app.component.css'],
 
 })
 export class AppComponent {
-  title = 'app works!';
+	title = 'app works!';
 
 
-  //private selectedOptions: number[];
-  private countries: IMultiSelectOption[] = [
+	//private selectedOptions: number[];
+	private countries: IMultiSelectOption[] = [
 		{ id: 1, name: 'Sweden' },
 		{ id: 2, name: 'Norway' },
 		{ id: 3, name: 'Denmark' },
 		{ id: 4, name: 'Finland' },
-  ];
+	];
 
-  //private selectedOptions: number[] = [1]; // Default selection
-  //private selectedCountries: number[] = [1, 2];
-
-	private texts: IMultiSelectTexts = {
-		defaultTitle: 'Select countries'
+	private texts_method: IMultiSelectTexts = {
+		defaultTitle: 'Select Method(s)'
 	};
 
-	private selectSettings: IMultiSelectSettings = {
-		checkedStyle: 'glyphicon',
-		showCheckAll: true,
-		showUncheckAll: true,
+	private texts_discipline: IMultiSelectTexts = {
+		defaultTitle: 'Select Discipline(s)'
 	};
 
-	private selectSettings2: IMultiSelectSettings = {
+	private selectSettings_withSearch: IMultiSelectSettings = {
 		enableSearch: true,
-	};
-
-	private selectSettings3: IMultiSelectSettings = {
-		selectionLimit: 3,
 		dynamicTitleMaxItems: 0,
 	};
 

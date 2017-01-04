@@ -1,15 +1,36 @@
-<h1>
-  {{title}}
-</h1>
 <!--<ss-multiselect-dropdown [options]="myOptions" [(ngModel)]="selectedOptions" (ngModelChange)="onChange($event)"></ss-multiselect-dropdown>-->
+<form>
+	<div class="form-group">
+		<h3>Thesis Search </h3>
+
+		<input type="search" class="form-control" placeholder="Type keywords, if you remember...">
+
+		<br>
+
 		<div>
-			<h2>Default</h2>
-			<ss-multiselect-dropdown [options]="countries"></ss-multiselect-dropdown>
-			<h2>Glyphicons and check all/none</h2>
-			<ss-multiselect-dropdown [options]="countries" [settings]="selectSettings" [texts]="texts"></ss-multiselect-dropdown>
-			<h2>Search filter</h2>
-			<ss-multiselect-dropdown [options]="countries" [settings]="selectSettings2" [texts]="texts"></ss-multiselect-dropdown>
-			<h2>Default model, selection limit and no dynamic title</h2>
-			<!--<ss-multiselect-dropdown [options]="countries" [defaultModel]="selectedCountries" [settings]="selectSettings3" [texts]="texts"></ss-multiselect-dropdown>-->
-			<ss-multiselect-dropdown [options]="countries" [settings]="selectSettings3" [texts]="texts"></ss-multiselect-dropdown>
-	    </div>
+			<ss-multiselect-dropdown [options]="countries" [settings]="selectSettings_withSearch" [texts]="texts_method"></ss-multiselect-dropdown>
+			<ss-multiselect-dropdown [options]="countries" [settings]="selectSettings_withSearch" [texts]="texts_discipline"></ss-multiselect-dropdown>
+		</div>
+
+		<br>
+
+		<div class="checkbox">
+			<label><input type="checkbox" value="Masters" checked> Master's </label>
+			<label><input type="checkbox" value="Dissertation" > Dissertation </label>
+		</div>
+		
+		<br>
+
+		<div>
+			<label> From <input type="number" name="year_from" min="1901" max="2100" placeholder="Year"></label>
+			<label> To <input type="number" name="year_to" min="1901" max="2100" placeholder="year"></label>
+		</div>
+
+		<br>
+
+		<div>
+			<button type="submit" class="btn btn-default">Search</button>
+		</div>
+
+	</div>
+</form>

@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 import {MultiselectDropdownModule} from 'angular-2-dropdown-multiselect/src/multiselect-dropdown';
 
 import { AppComponent } from './app.component';
+import { MethodListService } from './shared/index';
 
 //import {SearchFilter} from './search-filter.pipe';
 
@@ -19,7 +20,7 @@ import { AppComponent } from './app.component';
     HttpModule,
     MultiselectDropdownModule
   ],
-  providers: [],
+  providers: [MethodListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

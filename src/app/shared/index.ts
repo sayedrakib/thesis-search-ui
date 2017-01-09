@@ -1,1 +1,2 @@
-export * from './method-list-service/method-list.service';
+export * from './method-service/method.service';
+export * from './discipline-service/discipline.service';

@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { MultiselectDropdown, IMultiSelectOption, IMultiSelectSettings, IMultiSelectTexts } from 'angular-2-dropdown-multiselect/src/multiselect-dropdown';
 
+import { MethodService, Method, DisciplineService, Discipline } from './shared/index'
+
+
 @Component({
 	selector: 'app-root',
 	templateUrl: './app.component.html',
@@ -8,15 +11,22 @@ import { MultiselectDropdown, IMultiSelectOption, IMultiSelectSettings, IMultiSe
 
 })
 export class AppComponent {
-	title = 'app works!';
 
+	constructor(private methodListService: MethodService, 
+				private disciplineService: DisciplineService) {}
+
+	methods: Method[] = this.methodListService.getMethods();
+	disciplines: Discipline[] = this.disciplineService.getDisciplines();
+
+	getMethodList(): void {
+		//this.methodList = this.methodListService.getMethods();
+		//this.methodListService.getMethods().then(methodList => this.methodList = methodList);
+	}
 
 	//private selectedOptions: number[];
 	private countries: IMultiSelectOption[] = [
-		{ id: 1, name: 'Sweden' },
-		{ id: 2, name: 'Norway' },
-		{ id: 3, name: 'Denmark' },
-		{ id: 4, name: 'Finland' },
+		{ id: 1, name: 'Sweden' }, { id: 2, name: 'Norway' }, 
+		{ id: 3, name: 'Denmark' }, { id: 4, name: 'Finland' },
 	];
 
 	private texts_method: IMultiSelectTexts = {

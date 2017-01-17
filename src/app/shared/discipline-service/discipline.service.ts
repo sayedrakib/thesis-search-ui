@@ -8,7 +8,7 @@ export class DisciplineService {
   constructor() { }
 
     getDisciplines(): Discipline[] {
-    return Disciplines;
+    return Disciplines.sort((a:Discipline, b: Discipline) => a.name.localeCompare(b.name));
   }
 
 }

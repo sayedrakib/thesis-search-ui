@@ -8,7 +8,7 @@ export class MethodService {
   constructor() { }
 
     getMethods(): Method[] {
-    return Methods;
+    return Methods.sort((a,b)=>a.name.localeCompare(b.name));
   }
 
 /*

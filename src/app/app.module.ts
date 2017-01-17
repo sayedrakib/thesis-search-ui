@@ -7,12 +7,14 @@ import {MultiselectDropdownModule} from 'angular-2-dropdown-multiselect/src/mult
 
 import { AppComponent } from './app.component';
 import { MethodService, DisciplineService } from './shared/index';
+import { SearchformComponent } from './searchform/searchform.component';
 
 //import {SearchFilter} from './search-filter.pipe';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SearchformComponent
   ],
   imports: [
     BrowserModule,

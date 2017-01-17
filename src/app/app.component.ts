@@ -13,39 +13,40 @@ import { MethodService, Method, DisciplineService, Discipline } from './shared/i
 })
 export class AppComponent {
 
-	constructor(private methodListService: MethodService, 
-				private disciplineService: DisciplineService) {}
-	
-	private selectedOptions_method: number[];
-	private selectedOptions_discip: number[];
+	constructor(private methodListService: MethodService,
+		private disciplineService: DisciplineService) { }
+
+	private selected_methods: number[];
+	private selected_disciplines: number[];
+	private selected_levels = ["bachelors", "masters", "dissertation"];
 	private methods: IMultiSelectOption[] = this.methodListService.getMethods();
 	private disciplines: IMultiSelectOption[] = this.disciplineService.getDisciplines();
+	private levels: IMultiSelectOption[] = [{ id: "masters", name: "Masters" },
+	{ id: "bachelors", name: "Bachelors" },
+	{ id: "dissertation", name: "Dissertation" }];
+	private level_ms: boolean = true;
+	private level_ds: boolean = true;
+	private year_from: number = 1900;
+	private year_to: number = 2020;
 
-	getMethodList(): void {
-		//this.methodList = this.methodListService.getMethods();
-		//this.methodListService.getMethods().then(methodList => this.methodList = methodList);
-	}
+	private queryString: string;
 
-	display: any ;
-
-	goSearch({value, valid}: {value: any, valid: boolean}){
+	goSearch({value, valid}: { value: any, valid: boolean }) {
 		//this.display= f.searchText.value; 
 		console.log(value.searchText);
 		console.log(value.year_from);
-		console.log(value.selected_method.name);
+		//console.log(value.selected_method.name);
 		console.log(value, valid);
-	}
+		console.log(this.level_ds.valueOf);
 
-	onChange($event){
-		console.log(event);
-		this.display = event ;
+		this.queryString = "searchText=" + value.searchText +
+			"&year_from=" + this.year_from +
+			"&year_to=" + this.year_to +
+			"&method_ids=" + this.selected_methods +
+			"&discipline_ids=" + this.selected_disciplines +
+			"&levels=" + this.selected_levels;
+		console.log("querystring = ?" + this.queryString);
 	}
-
-	//private selectedOptions: number[];
-	private countries: IMultiSelectOption[] = [
-		{ id: 1, name: 'Sweden' }, { id: 2, name: 'Norway' }, 
-		{ id: 3, name: 'Denmark' }, { id: 4, name: 'Finland' },
-	];
 
 	private txt_method: IMultiSelectTexts = {
 		defaultTitle: 'Select Method(s)'
@@ -55,11 +56,20 @@ export class AppComponent {
 		defaultTitle: 'Select Discipline(s)'
 	};
 
-	private settings_Search: IMultiSelectSettings = {
+	private txt_level: IMultiSelectTexts = {
+		defaultTitle: '(At any level)'
+	};
+
+	private settings_forSearch: IMultiSelectSettings = {
 		enableSearch: true,
 		dynamicTitleMaxItems: 0,
 	};
 
+	private settings_forCheckAll: IMultiSelectSettings = {
+		checkedStyle: 'glyphicon',
+		showCheckAll: true,
+		showUncheckAll: true,
+	};
 
 
 }

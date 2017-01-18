@@ -1,6 +1,27 @@
 <h3>Search results</h3>
 <div>
   <p>Result table will be displayed here..</p>
-  <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-</div>
+  <hr>
+  <div *ngIf="searchResults">
 
+    <p>Total results: {{searchResults.length}}</p>
+
+    <clr-datagrid [clrDgLoading]="loading">
+
+      <clr-dg-column [clrDgField]="'id'">Signum</clr-dg-column>
+      <clr-dg-column [clrDgField]="'title'">Hylly</clr-dg-column>
+
+
+      <clr-dg-row *clrDgItems="let item of searchResults">
+        <clr-dg-cell class="signe-column-signum"> {{item.signum}} </clr-dg-cell>
+        <clr-dg-cell class="signe-column-shelfnumber">{{item.floor}}</clr-dg-cell>
+      </clr-dg-row>
+
+      <clr-dg-footer>{{searchResults.length}} items</clr-dg-footer>
+
+    </clr-datagrid>
+
+  </div>
+
+
+</div>

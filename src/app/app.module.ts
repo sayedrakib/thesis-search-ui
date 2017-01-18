@@ -3,10 +3,11 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import {MultiselectDropdownModule} from 'angular-2-dropdown-multiselect/src/multiselect-dropdown';
+import { MultiselectDropdownModule } from 'angular-2-dropdown-multiselect/src/multiselect-dropdown';
+import { ClarityModule } from 'clarity-angular';
 
 import { AppComponent } from './app.component';
-import { MethodService, DisciplineService } from './shared/index';
+import { MethodService, DisciplineService, SearchresultService } from './shared/index';
 import { SearchformComponent } from './searchform/searchform.component';
 import { SearchresultComponent } from './searchresult/searchresult.component';
 
@@ -22,9 +23,10 @@ import { SearchresultComponent } from './searchresult/searchresult.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    MultiselectDropdownModule
+    MultiselectDropdownModule,
+    ClarityModule.forChild(),
   ],
-  providers: [MethodService, DisciplineService],
+  providers: [MethodService, DisciplineService, SearchresultService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

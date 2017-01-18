@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 import { MultiselectDropdown, IMultiSelectOption, IMultiSelectSettings, IMultiSelectTexts } from 'angular-2-dropdown-multiselect/src/multiselect-dropdown';
 
-import { MethodService, Method, DisciplineService, Discipline } from '../shared/index';
+import { MethodService, Method, DisciplineService, Discipline, Item, SearchresultService } from '../shared/index';
 
 
 
@@ -13,7 +13,8 @@ import { MethodService, Method, DisciplineService, Discipline } from '../shared/
 })
 export class SearchformComponent {
 constructor(private methodListService: MethodService,
-		private disciplineService: DisciplineService) { }
+		private disciplineService: DisciplineService,
+		private searchresultService : SearchresultService) { }
 
 	private selected_methods: number[];
 	private selected_disciplines: number[];
@@ -30,6 +31,10 @@ constructor(private methodListService: MethodService,
 
 	private queryString: string;
 
+	searchResults: Array<Item>;
+	//query: string = "https://api.finna.fi/v1/search?lookfor=sibelius&amp;type=AllFields&amp;filter%5B%5D=format%3A%220%2FBook%2F%22";
+	query: string = "https://minerva.lib.jyu.fi/api/signe-locations/search/all/q";
+
 	goSearch({value, valid}: { value: any, valid: boolean }) {
 		//this.display= f.searchText.value; 
 		console.log(value.searchText);
@@ -45,6 +50,13 @@ constructor(private methodListService: MethodService,
 			"&discipline_ids=" + this.selected_disciplines +
 			"&levels=" + this.selected_levels;
 		console.log("querystring = ?" + this.queryString);
+
+		  this.searchresultService.search(this.query).subscribe(
+    data => { this.searchResults = data; },
+    error => console.log(error)
+  );
+
+
 	}
 
 	private txt_method: IMultiSelectTexts = {
@@ -69,6 +81,9 @@ constructor(private methodListService: MethodService,
 		showCheckAll: true,
 		showUncheckAll: true,
 	};
+
+
+	
 
 
 

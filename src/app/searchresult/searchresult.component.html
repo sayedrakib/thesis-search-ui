@@ -1,23 +1,26 @@
 <h3>Search results</h3>
 <div>
+  <p> {{searchQ}} </p>
   <p>Result table will be displayed here..</p>
   <hr>
-  <div *ngIf="searchResults">
+ <!-- <div *ngIf="searchResults"> -->
+      <div >
 
-    <p>Total results: {{searchResults.length}}</p>
+    <!--<p>Total results: {{searchResults.length}}</p>-->
 
     <clr-datagrid [clrDgLoading]="loading">
 
       <clr-dg-column [clrDgField]="'id'">Signum</clr-dg-column>
       <clr-dg-column [clrDgField]="'title'">Hylly</clr-dg-column>
 
+ <clr-dg-placeholder>Didn't get any data, yet!</clr-dg-placeholder>
 
       <clr-dg-row *clrDgItems="let item of searchResults">
         <clr-dg-cell class="signe-column-signum"> {{item.signum}} </clr-dg-cell>
         <clr-dg-cell class="signe-column-shelfnumber">{{item.floor}}</clr-dg-cell>
       </clr-dg-row>
 
-      <clr-dg-footer>{{searchResults.length}} items</clr-dg-footer>
+     <!-- <clr-dg-footer>{{searchResults.length}} items</clr-dg-footer> -->
 
     </clr-datagrid>
 

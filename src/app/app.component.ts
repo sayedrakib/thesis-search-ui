@@ -11,6 +11,10 @@ import { Component } from '@angular/core';
 export class AppComponent {
 
 	constructor() { }
+private searchQ ;
 
+search(q: any){
+	this.searchQ = q ;
+}
 	
 }

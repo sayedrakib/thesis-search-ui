@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, Input } from '@angular/core';
 import { MethodService, Method, DisciplineService, Discipline, Item, SearchresultService } from '../shared/index';
 
 @Component({
@@ -6,20 +6,27 @@ import { MethodService, Method, DisciplineService, Discipline, Item, Searchresul
   templateUrl: './searchresult.component.html',
   styleUrls: ['./searchresult.component.css']
 })
-export class SearchresultComponent implements OnInit {
+export class SearchresultComponent implements OnChanges  {
 
-  constructor(private searchresultService : SearchresultService) { }
+  constructor(private searchresultService: SearchresultService) { }
 
-  searchResults: Array<Item>;
-  	query: string = "https://minerva.lib.jyu.fi/api/signe-locations/search/all/q";
+  //searchResults: Array<Item>;
+  query: string = "https://minerva.lib.jyu.fi/api/signe-locations/search/all/e";
 
-  ngOnInit() {
+  @Input() searchQ: any;
 
-		  this.searchresultService.search(this.query).subscribe(
-    data => { this.searchResults = data; },
-    error => console.log(error)
-  );
+  searchResults: Array<Item> = this.searchQ;
 
-  }
+ 
+  ngOnChanges() {
+
+    this.searchresultService.search(this.searchQ).subscribe(
+      data => { this.searchResults = data; },
+      error => console.log(error)
+    );
+
+    console.log("ngOnChanges: " +this.searchResults);
+
+} 
 
 }

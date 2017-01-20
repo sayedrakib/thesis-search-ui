@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 import { MultiselectDropdown, IMultiSelectOption, IMultiSelectSettings, IMultiSelectTexts } from 'angular-2-dropdown-multiselect/src/multiselect-dropdown';
 
@@ -7,14 +7,15 @@ import { MethodService, Method, DisciplineService, Discipline, Item, Searchresul
 
 
 @Component({
-  selector: 'app-searchform',
-  templateUrl: './searchform.component.html',
-  styleUrls: ['./searchform.component.css']
+	selector: 'app-searchform',
+	templateUrl: './searchform.component.html',
+	styleUrls: ['./searchform.component.css']
 })
 export class SearchformComponent {
-constructor(private methodListService: MethodService,
+
+	constructor(private methodListService: MethodService,
 		private disciplineService: DisciplineService,
-		private searchresultService : SearchresultService) { }
+		private searchresultService: SearchresultService) { }
 
 	private selected_methods: number[];
 	private selected_disciplines: number[];
@@ -31,9 +32,11 @@ constructor(private methodListService: MethodService,
 
 	private queryString: string;
 
+	@Output() searchQ = new EventEmitter();
+
 	searchResults: Array<Item>;
 	//query: string = "https://api.finna.fi/v1/search?lookfor=sibelius&amp;type=AllFields&amp;filter%5B%5D=format%3A%220%2FBook%2F%22";
-	query: string = "https://minerva.lib.jyu.fi/api/signe-locations/search/all/q";
+	private query: string = "https://minerva.lib.jyu.fi/api/signe-locations/search/all/q";
 
 	goSearch({value, valid}: { value: any, valid: boolean }) {
 		//this.display= f.searchText.value; 
@@ -51,11 +54,20 @@ constructor(private methodListService: MethodService,
 			"&levels=" + this.selected_levels;
 		console.log("querystring = ?" + this.queryString);
 
-		  this.searchresultService.search(this.query).subscribe(
-    data => { this.searchResults = data; },
-    error => console.log(error)
-  );
+		this.searchresultService.search(this.query).subscribe(
+			data => { this.searchResults = data; },
+			error => console.log(error)
 
+		);
+
+		this.searchQ.emit(this.queryString);
+
+		console.log("searchResults: " + this.searchResults)
+
+	}
+
+	emitMethod() {
+		console.log("emit method ...");
 
 	}
 
@@ -83,7 +95,7 @@ constructor(private methodListService: MethodService,
 	};
 
 
-	
+
 
 
 

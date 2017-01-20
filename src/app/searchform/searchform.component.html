@@ -42,7 +42,7 @@
 	<div>
 		<label> From <input [(ngModel)]="year_from" type="number"  class="form-control" name="year_from" min="1901" max="2100" placeholder="Year"></label>
 		<label> To <input [(ngModel)]="year_to" type="number" class="form-control" name="year_to" min="1901" max="2100" placeholder="year"></label>
-		<button type="submit" class="btn btn-default">Search</button>
+		<button type="submit" (click)="emitMethod()" class="btn btn-default">Search</button>
 	</div>
 	<!--
 	<div *ngIf="searchText.errors && (searchText.dirty || searchText.touched)" class="alert alert-danger">
@@ -53,9 +53,8 @@
 -->
 
 
-	<div>
-		<!--<button type="submit" class="btn btn-default" [disabled]="queryData.invalid" >Search</button>-->
-	</div>
+	<!--<div> <button type="submit" class="btn btn-default" [disabled]="queryData.invalid" >Search</button> </div>-->
+	
 <br>
 <hr>
 </form>

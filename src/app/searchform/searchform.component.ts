@@ -36,7 +36,7 @@ export class SearchformComponent {
 
 	searchResults: Array<Item>;
 	//query: string = "https://api.finna.fi/v1/search?lookfor=sibelius&amp;type=AllFields&amp;filter%5B%5D=format%3A%220%2FBook%2F%22";
-	private query: string = "https://minerva.lib.jyu.fi/api/signe-locations/search/all/q";
+	private query: string = "https://minerva.lib.jyu.fi/api/signe-locations/search/all/";
 
 	goSearch({value, valid}: { value: any, valid: boolean }) {
 		//this.display= f.searchText.value; 
@@ -60,7 +60,8 @@ export class SearchformComponent {
 
 		);
 
-		this.searchQ.emit(this.queryString);
+		//this.searchQ.emit(this.queryString);
+		this.searchQ.emit(this.query + value.searchText);
 
 		console.log("searchResults: " + this.searchResults)
 

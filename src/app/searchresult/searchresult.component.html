@@ -11,13 +11,20 @@
     <clr-datagrid [clrDgLoading]="loading">
 
       <clr-dg-column [clrDgField]="'id'">Signum</clr-dg-column>
-      <clr-dg-column [clrDgField]="'title'">Hylly</clr-dg-column>
+      <clr-dg-column [clrDgField]="'name'">Hylly</clr-dg-column>
+      <clr-dg-column [clrDgField]="'testno'">Signumm</clr-dg-column>
 
- <clr-dg-placeholder>Didn't get any data, yet!</clr-dg-placeholder>
+
 
       <clr-dg-row *clrDgItems="let item of searchResults">
-        <clr-dg-cell class="signe-column-signum"> {{item.signum}} </clr-dg-cell>
-        <clr-dg-cell class="signe-column-shelfnumber">{{item.floor}}</clr-dg-cell>
+        <!--
+        <clr-dg-cell > {{item.signum}} </clr-dg-cell>
+        <clr-dg-cell > {{item.floor}} </clr-dg-cell> 
+        -->
+        <clr-dg-cell > {{item.id}} </clr-dg-cell>
+        <clr-dg-cell > {{item.name}} </clr-dg-cell>
+        <clr-dg-cell > {{item.testno}} </clr-dg-cell>
+    
       </clr-dg-row>
 
      <!-- <clr-dg-footer>{{searchResults.length}} items</clr-dg-footer> -->

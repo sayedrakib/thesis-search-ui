@@ -14,8 +14,7 @@ import { MethodService, Method, DisciplineService, Discipline, Item, Searchresul
 export class SearchformComponent {
 
 	constructor(private methodListService: MethodService,
-		private disciplineService: DisciplineService,
-		private searchresultService: SearchresultService) { }
+		private disciplineService: DisciplineService) { }
 
 	private selected_methods: number[];
 	private selected_disciplines: number[];
@@ -35,16 +34,10 @@ export class SearchformComponent {
 	@Output() searchQ = new EventEmitter();
 
 	searchResults: Array<Item>;
-	//query: string = "https://api.finna.fi/v1/search?lookfor=sibelius&amp;type=AllFields&amp;filter%5B%5D=format%3A%220%2FBook%2F%22";
-	private query: string = "https://minerva.lib.jyu.fi/api/signe-locations/search/all/";
+
+	private baseUrl: string = "https://minerva.lib.jyu.fi/api/signe-locations/search/all/";
 
 	goSearch({value, valid}: { value: any, valid: boolean }) {
-		//this.display= f.searchText.value; 
-		console.log(value.searchText);
-		console.log(value.year_from);
-		//console.log(value.selected_method.name);
-		console.log(value, valid);
-		console.log(this.level_ds.valueOf);
 
 		this.queryString = "searchText=" + value.searchText +
 			"&year_from=" + this.year_from +
@@ -54,16 +47,7 @@ export class SearchformComponent {
 			"&levels=" + this.selected_levels;
 		console.log("querystring = ?" + this.queryString);
 
-		this.searchresultService.search(this.query).subscribe(
-			data => { this.searchResults = data; },
-			error => console.log(error)
-
-		);
-
-		//this.searchQ.emit(this.queryString);
-		this.searchQ.emit(this.query + value.searchText);
-
-		console.log("searchResults: " + this.searchResults)
+		this.searchQ.emit(this.baseUrl + value.searchText);
 
 	}
 

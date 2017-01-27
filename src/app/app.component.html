@@ -11,7 +11,7 @@
 	</div>
 
 	<div class="container text-center">
-		<app-searchresult [searchQ]="searchQ"> </app-searchresult>
+		<app-searchresult [eventlistener]="appEventEmit"  [searchQ]="searchQ" [searchResults]="searchResults" > </app-searchresult>
 	</div><br>
 
 	<footer class="container-fluid text-center">

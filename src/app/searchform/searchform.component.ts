@@ -33,8 +33,6 @@ export class SearchformComponent {
 
 	@Output() searchQ = new EventEmitter();
 
-	searchResults: Array<Item>;
-
 	private baseUrl: string = "https://minerva.lib.jyu.fi/api/signe-locations/search/all/";
 
 	goSearch({value, valid}: { value: any, valid: boolean }) {

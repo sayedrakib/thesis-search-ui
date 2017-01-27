@@ -16,5 +16,4 @@ export class DisciplineService {
 export class Discipline {
   id: number;
   name: string;
-  testno: number;
 }

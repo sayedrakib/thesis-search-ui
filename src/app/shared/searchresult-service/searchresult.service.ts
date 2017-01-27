@@ -7,7 +7,6 @@ import 'rxjs/add/operator/map';
 export class SearchresultService {
 
   constructor(private http: Http){ }
-
   
   search(query){
     return this.http.get(query).map((results:Response)=> results.json());

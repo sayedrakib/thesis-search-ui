@@ -1,5 +1,5 @@
 import { Discipline } from '../discipline-service/discipline.service';
-/*
+
 export const Disciplines: Discipline[] = [
   {id: 11, name: 'Arts'},
   {id: 12, name: 'Geography'},
@@ -10,8 +10,8 @@ export const Disciplines: Discipline[] = [
   {id: 17, name: 'Computer Science'},
   {id: 18, name: 'Engineering and technology'}
 ]
-*/
 
+/*
 export const Disciplines: Discipline[] = [
   {id: 11, name: 'Arts', testno: 2},
   {id: 12, name: 'Geography', testno: 20},
@@ -22,3 +22,4 @@ export const Disciplines: Discipline[] = [
   {id: 17, name: 'Computer Science', testno: 12},
   {id: 18, name: 'Engineering and technology', testno: 52}
 ]
+*/

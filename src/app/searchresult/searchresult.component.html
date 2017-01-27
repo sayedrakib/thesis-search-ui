@@ -10,21 +10,16 @@
 
     <clr-datagrid [clrDgLoading]="loading">
 
-      <clr-dg-column [clrDgField]="'id'">Signum</clr-dg-column>
-      <clr-dg-column [clrDgField]="'name'">Hylly</clr-dg-column>
-      <clr-dg-column [clrDgField]="'testno'">Signumm</clr-dg-column>
+      <clr-dg-column [clrDgField]="'signum'">Signum</clr-dg-column>
+      <clr-dg-column [clrDgField]="'floor'">Hylly</clr-dg-column>
 
-
+       <clr-dg-placeholder>No results!</clr-dg-placeholder>
 
       <clr-dg-row *clrDgItems="let item of searchResults">
-        <!--
+    
         <clr-dg-cell > {{item.signum}} </clr-dg-cell>
         <clr-dg-cell > {{item.floor}} </clr-dg-cell> 
-        -->
-        <clr-dg-cell > {{item.id}} </clr-dg-cell>
-        <clr-dg-cell > {{item.name}} </clr-dg-cell>
-        <clr-dg-cell > {{item.testno}} </clr-dg-cell>
-    
+        
       </clr-dg-row>
 
      <!-- <clr-dg-footer>{{searchResults.length}} items</clr-dg-footer> -->
@@ -32,6 +27,7 @@
     </clr-datagrid>
 
   </div>
+
 
 
 </div>

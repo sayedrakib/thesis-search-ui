@@ -21,8 +21,8 @@ export class Item {
  
 
   constructor(obj?: any) {
-    this.id = obj && obj.signum|| null;
-    this.title = obj && obj.floor || null;
+    this.id = obj && obj._id || null;
+    this.title = obj && obj.thesis_type || null;
 
   }
 }

@@ -13,21 +13,14 @@ export class AppComponent {
 
 	constructor(private searchresultService: SearchresultService) { }
 	private searchQ;
-	//@Output() appEventEmit = new EventEmitter();
-searchResults: Array<Item>;
 
-	search(q: any) {
-		//this.searchQ = q ;
-		//this.searchQ = function callService(){ };
+	searchResults: Array<Item>;
 
-		//this.appEventEmit.emit(this.searchQ);
-
-		this.searchresultService.search(q).subscribe(
+	search(url: any) {
+		this.searchresultService.search(url).subscribe(
 			data => this.searchResults = data,
-			error => console.log("---this is error---" + error)
+			error => console.log("Error message: " + error)
 		);
-
-
 	}
 
 }

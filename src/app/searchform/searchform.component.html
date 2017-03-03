@@ -4,84 +4,42 @@
 
 	<h3>Thesis Search </h3>
 
-	<input ngModel type="search" pattern="[a-zäöåA-ZÄÖÅ0-9-\s]+" class="form-control" name="searchText" #searchText="ngModel"
+	<input [(ngModel)]="textInput" type="search" pattern="[a-zäöåA-ZÄÖÅ0-9-\s]+" class="form-control" name="searchText" #searchText="ngModel"
 		required minlength="3" maxlength="100" placeholder="Type what you want to search for...">
-
+	
+	<!-- Text input validation messeges -->
 	<div *ngIf="searchText.errors && (searchText.dirty || searchText.touched)" class="alert alert-danger">
 		<div [hidden]="!searchText.errors.required"> Input required! </div>
 		<div [hidden]="!queryData.controls.searchText.errors.pattern"> Only alphanumeric characters! </div>
-		<!--<div [hidden]="!searchText.errors.pattern"> Only alphanumeric characters! </div>-->
 		<div [hidden]="!searchText.errors.minlength"> Type at least 3 characters! </div>
 		<div [hidden]="!searchText.errors.maxlength"> Maximum 100 characters! </div>
 	</div>
-
-
-	<!-- <div *ngIf="searchText.errors?.pattern" class="alert alert-danger">
-  		Only alphanumeric characters!
-	</div> -->
 
 	<br>
 
 	<div>
 		<ss-multiselect-dropdown [(ngModel)]="selected_methods" name="selected_methods" [options]="methods" [settings]="settings_forSearch"
-			[texts]="txt_method" required></ss-multiselect-dropdown>
+			[texts]="defaultTitle_method" required></ss-multiselect-dropdown>
 		<ss-multiselect-dropdown [(ngModel)]="selected_disciplines" name="selected_disciplines" [options]="disciplines" [settings]="settings_forSearch"
-			[texts]="txt_discipline" required></ss-multiselect-dropdown>
+			[texts]="defaultTitle_discipline" required></ss-multiselect-dropdown>
 		<ss-multiselect-dropdown [(ngModel)]="selected_levels" name="selected_levels" [options]="levels" [settings]="settings_forCheckAll"
-			[texts]="txt_level" required></ss-multiselect-dropdown>
+			[texts]="defaultTitle_level" required></ss-multiselect-dropdown>
 	</div>
 
 	<br>
-<!--
-	<div class="checkbox">
-		<label><input [(ngModel)]="level_ms" type="checkbox" name="Ms" value="Masters" checked> Master's </label>
-		<label><input [(ngModel)]="level_ds" type="checkbox" name="Ds" value="Dissertation" > Dissertation </label>
-	</div>
--->
 
 	<div>
 		<label> From <input [(ngModel)]="year_from" type="number"  class="form-control" name="year_from" min="1901" max="2100" placeholder="Year"></label>
 		<label> To <input [(ngModel)]="year_to" type="number" class="form-control" name="year_to" min="1901" max="2100" placeholder="year"></label>
-		<button type="submit" (click)="emitMethod()" class="btn btn-default">Search</button>
+		<button type="submit" class="btn btn-default">Search</button>
 	</div>
-	<!--
-	<div *ngIf="searchText.errors && (searchText.dirty || searchText.touched)" class="alert alert-danger">
-		<div [hidden]="!searchText.errors.required"> Input required! </div>
-		<div [hidden]="!searchText.errors.minlength"> Type at least 3 characters! </div>
-		<div [hidden]="!searchText.errors.maxlength"> Maximum 30 characters! </div>
-	</div>
--->
 
-
-	<!--<div> <button type="submit" class="btn btn-default" [disabled]="queryData.invalid" >Search</button> </div>-->
-	
-<br>
-<hr>
+	<br>
+	<hr>
 </form>
-<div>
+<div >
 	<h3> Search Parameters </h3>
-	<p>{{ queryData.value | json }}</p>
-	<p>{{queryString}}</p>
+	<p>JSON Object: {{ queryData.value | json }}</p>
 
 </div>
 
-<div *ngIf="searchResults" >
-
-<p>Löytyi sijainteja: {{searchResults.length}}</p>
-
-<clr-datagrid [clrDgLoading]="loading">
-
-    <clr-dg-column [clrDgField]="'id'">Signum</clr-dg-column>
-    <clr-dg-column [clrDgField]="'title'">Hylly</clr-dg-column>
-
-
-    <clr-dg-row *clrDgItems="let item of searchResults">
-        <clr-dg-cell class="signe-column-signum"> <a target="_blank" href="http://kirjastokartta.kansalliskirjasto.fi/LocationHandler?lang=en&owner=FI-J&callno={{item.originalsignum}}"> <u>{{item.signum}} </u> </a> </clr-dg-cell>
-        <clr-dg-cell class="signe-column-shelfnumber">{{item.floor}}</clr-dg-cell>
-   </clr-dg-row>
-
-    <clr-dg-footer>{{searchResults.length}} items</clr-dg-footer>
-
-</clr-datagrid>
-
-</div>

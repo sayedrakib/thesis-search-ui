@@ -4,14 +4,13 @@
 	</nav>
 
 	<div class="jumbotron">
-		<p> parent component: {{searchQ}} </p>
 		<div class="container text-center">
-			<app-searchform (searchQ)="search($event)"> </app-searchform>
+			<app-searchform (searchEvent)="search($event)"> </app-searchform>
 		</div>
 	</div>
 
 	<div class="container text-center">
-		<app-searchresult [eventlistener]="appEventEmit"  [searchQ]="searchQ" [searchResults]="searchResults" > </app-searchresult>
+		<app-searchresult [searchResults]="searchResults" > </app-searchresult>
 	</div><br>
 
 	<footer class="container-fluid text-center">

@@ -1,32 +1,32 @@
 <h3>Search results</h3>
 <div>
-  <p> {{searchQ}} </p>
-  <p>Result table will be displayed here..</p>
-  <hr>
- <!-- <div *ngIf="searchResults"> -->
-      <div >
-
-    <!--<p>Total results: {{searchResults.length}}</p>-->
-
-    <clr-datagrid [clrDgLoading]="loading">
-
-      <clr-dg-column [clrDgField]="'signum'">Signum</clr-dg-column>
-      <clr-dg-column [clrDgField]="'floor'">Hylly</clr-dg-column>
-
-       <clr-dg-placeholder>No results!</clr-dg-placeholder>
-
-      <clr-dg-row *clrDgItems="let item of searchResults">
-    
-        <clr-dg-cell > {{item.signum}} </clr-dg-cell>
-        <clr-dg-cell > {{item.floor}} </clr-dg-cell> 
-        
-      </clr-dg-row>
-
-     <!-- <clr-dg-footer>{{searchResults.length}} items</clr-dg-footer> -->
-
-    </clr-datagrid>
-
+  <div *ngIf="searchResults">
+    <p>Total results: {{searchResults.length}}</p>
   </div>
+
+  <clr-datagrid [clrDgLoading]="loading">
+
+    <clr-dg-column [clrDgField]="'thesis_type'">Tyyppi</clr-dg-column>
+    <clr-dg-column [clrDgField]="'first_authors'">Tekijä</clr-dg-column>
+    <clr-dg-column [clrDgField]="'full_title'">Otsikko</clr-dg-column>
+    <clr-dg-column [clrDgField]="'_id'">ID</clr-dg-column>
+
+    <clr-dg-placeholder>Results will be displayed here..</clr-dg-placeholder>
+
+    <clr-dg-row *clrDgItems="let item of searchResults">
+
+      <clr-dg-cell> {{item.thesis_type}} </clr-dg-cell>
+      <clr-dg-cell> {{item.first_authors}} </clr-dg-cell>    
+      <clr-dg-cell> <a href="{{item.catalogue_url}}">{{item.full_title}}</a> </clr-dg-cell>
+      <clr-dg-cell> {{item._id}} </clr-dg-cell>
+
+    </clr-dg-row>
+
+    <!--<clr-dg-footer>{{searchResults.length}} items</clr-dg-footer>-->
+
+  </clr-datagrid>
+
+
 
 
 

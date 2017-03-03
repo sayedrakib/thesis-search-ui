@@ -1,4 +1,4 @@
-import { Discipline } from '../discipline-service/discipline.service';
+import { DisciplineOneProp, Discipline } from '../discipline-service/discipline.service';
 
 export const Disciplines: Discipline[] = [
   {id: 11, name: 'Arts'},
@@ -11,15 +11,109 @@ export const Disciplines: Discipline[] = [
   {id: 18, name: 'Engineering and technology'}
 ]
 
+
 /*
-export const Disciplines: Discipline[] = [
-  {id: 11, name: 'Arts', testno: 2},
-  {id: 12, name: 'Geography', testno: 20},
-  {id: 13, name: 'History', testno: 2},
-  {id: 14, name: 'Languages and literature', testno: 22},
-  {id: 15, name: 'Philosophy', testno: 42},
-  {id: 16, name: 'Sciences', testno: 32},
-  {id: 17, name: 'Computer Science', testno: 12},
-  {id: 18, name: 'Engineering and technology', testno: 52}
+export const Disciplines: DisciplineOneProp[] = [
+  {
+    "name": "103"
+  },
+  {
+    "name": "Liikuntapedagogiikka"
+  },
+  {
+    "name": "202"
+  },
+  {
+    "name": "Englannin kieli"
+  },
+  {
+    "name": "Kasvatustiede"
+  },
+  {
+    "name": "Erityispedagogiikka"
+  },
+  {
+    "name": "402"
+  },
+  {
+    "name": "Suomen kieli"
+  },
+  {
+    "name": "Suomen historia"
+  },
+  {
+    "name": "Yhteiskuntapolitiikka"
+  },
+  {
+    "name": "Kognitiotiede"
+  },
+  {
+    "name": "Ruotsin kieli"
+  },
+  {
+    "name": "Kirjallisuus"
+  },
+  {
+    "name": "Tietojenkäsittelytiede"
+  },
+  {
+    "name": "Sosiologia"
+  },
+  {
+    "name": "Laskentatoimi"
+  },
+  {
+    "name": "Kansantaloustiede"
+  },
+  {
+    "name": "Valtio-oppi"
+  },
+  {
+    "name": "Yleinen historia"
+  },
+  {
+    "name": "Saksan kieli ja kulttuuri"
+  },
+  {
+    "name": "Markkinointi"
+  },
+  {
+    "name": "Tietojärjestelmätiede"
+  },
+  {
+    "name": "Ekologia ja evoluutiobiologia"
+  },
+  {
+    "name": "Solu- ja molekyylibiologia"
+  },
+  {
+    "name": "Taidehistoria"
+  },
+  {
+    "name": "Yrittäjyys"
+  },
+  {
+    "name": "Puheviestintä"
+  },
+  {
+    "name": "Johtaminen"
+  },
+  {
+    "name": "Liikunnan yhteiskuntatieteet"
+  },
+  {
+    "name": "Romaaninen filologia"
+  },
+  {
+    "name": "Fysioterapia"
+  },
+  {
+    "name": "Yhteisöviestintä (aik. Sov. kielitiede)"
+  },
+  {
+    "name": "Journalistiikka"
+  }
 ]
 */
+
+

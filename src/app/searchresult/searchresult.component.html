@@ -6,20 +6,20 @@
 
   <clr-datagrid [clrDgLoading]="loading">
 
-    <clr-dg-column [clrDgField]="'thesis_type'">Tyyppi</clr-dg-column>
+    <clr-dg-column [clrDgField]="'thesis_type_label'">Tyyppi</clr-dg-column>
     <clr-dg-column [clrDgField]="'first_authors'">Tekijä</clr-dg-column>
     <clr-dg-column [clrDgField]="'full_title'">Otsikko</clr-dg-column>
-    <clr-dg-column [clrDgField]="'_id'">ID</clr-dg-column>
+    <clr-dg-column [clrDgField]="'publishing_date'">Julkaistu</clr-dg-column>
 
     <clr-dg-placeholder>Results will be displayed here..</clr-dg-placeholder>
 
     <clr-dg-row *clrDgItems="let item of searchResults">
 
-      <clr-dg-cell> {{item.thesis_type}} </clr-dg-cell>
+      <clr-dg-cell> {{item.thesis_type_label}} </clr-dg-cell>
       <clr-dg-cell> {{item.first_authors}} </clr-dg-cell>    
-      <clr-dg-cell> <a href="{{item.catalogue_url}}">{{item.full_title}}</a> </clr-dg-cell>
-      <clr-dg-cell> {{item._id}} </clr-dg-cell>
-
+      <clr-dg-cell> <a href="{{item.catalogue_url}}" target="_blank">{{item.full_title}}</a> </clr-dg-cell>
+      <clr-dg-cell> {{item.publishing_date}} </clr-dg-cell>
+      
     </clr-dg-row>
 
     <!--<clr-dg-footer>{{searchResults.length}} items</clr-dg-footer>-->

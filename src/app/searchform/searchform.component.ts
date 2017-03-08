@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter} from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { URLSearchParams, QueryEncoder } from '@angular/http';
 
 import { MultiselectDropdown, IMultiSelectOption, IMultiSelectSettings, IMultiSelectTexts } from 'angular-2-dropdown-multiselect/src/multiselect-dropdown';
@@ -20,65 +20,85 @@ export class SearchformComponent {
 
 	constructor(private methodListService: MethodService,
 		private disciplineService: DisciplineService,
-		private http: Http) { }
+		private _http: Http) { }
+
+	private disciplineList = [];
+	private disciplines: IMultiSelectOption[];
 
 
-		ngOnInit(){
-			      let myVar = this.http.get('http://jsonplaceholder.typicode.com/posts').
-      map(res =>res.json());
+	ngOnInit() {
 
-      console.log("test response: " + myVar);
-		}
-	
+		this._http.get('https://minerva.lib.jyu.fi/thesis/thesis-api/disciplines')
+			.map(res => res.json())
+			.subscribe(data => {
+				this.disciplines = data.map((eachObject) => {
+					eachObject['id'] = eachObject.name;
+					eachObject['name'] = eachObject.name;
+					//console.log("id: " + eachObject.name + "; name: " + eachObject.id);
+					return eachObject;
+				})
+			});
+
+		this._http.get('https://minerva.lib.jyu.fi/thesis/thesis-api/methods')
+			.map(res => res.json())
+			.subscribe(data => {
+				this.methods = data.map((eachObject) => {
+					eachObject['id'] = eachObject.name;
+					eachObject['name'] = eachObject.name;
+					//console.log("id: " + eachObject.name + "; name: " + eachObject.id);
+					return eachObject;
+				})
+			});
+	}
+
+	private methods: IMultiSelectOption[];
 	private textInput: string = "";
 	private selected_methods: number[];
 	private selected_disciplines: number[];
-	private selected_levels = ["master", "bachelor", "doctoral","other"];
-	private methods: IMultiSelectOption[] = this.methodListService.getMethods();
-	private disciplines: IMultiSelectOption[] = this.disciplineService.getDisciplines();
+	private selected_levels = ["master", "bachelor", "doctoral", "other"];
+	//private methods: IMultiSelectOption[] = this.methodListService.getMethods();
+	//private disciplines: IMultiSelectOption[] = this.disciplineService.getDisciplines();
 	private levels: IMultiSelectOption[] = [
 		{ id: "master", name: "Pro gradu -työ" },
 		{ id: "bachelor", name: "Kandidaatintyö" },
 		{ id: "doctoral", name: "Väitöskirja" },
-		{ id: "other", name: "Muu opinnäyte"}
-		];
+		{ id: "other", name: "Muu opinnäyte" }
+	];
 	private level_ms: boolean = true;
 	private level_ds: boolean = true;
 	private year_from: string = '1900';
 	private year_to: string = '2020';
-	private params = new URLSearchParams('',new QueryEncoder());
+	private params = new URLSearchParams('', new QueryEncoder());
 
 	private searchParameters: string;
 
 	@Output() searchEvent = new EventEmitter();
 
-	private baseUrl: string = "http://localhost:10010/thesis-api/search/documents?";
+	private baseUrl: string = "https://minerva.lib.jyu.fi/thesis/thesis-api/search/documents?";
 
 	goSearch({value, valid}: { value: any, valid: boolean }) {
-		
-  		if (this.textInput !="") {
-		this.params.set('q', this.textInput);
-		  }
-		this.params.set('from_year',this.year_from);
-		this.params.set('to_year', this.year_to);
-		
-		if (this.selected_levels != null) {
-			this.params.set('thesis_type',this.selected_levels.join());
-		}
 
+		if (this.textInput != "") {
+			this.params.set('q', this.textInput);
+		}
+		this.params.set('from_year', this.year_from);
+		this.params.set('to_year', this.year_to);
+
+		if (this.selected_levels != null) {
+			this.params.set('thesis_type', this.selected_levels.join());
+		}
 		if (this.selected_disciplines != null) {
-			this.params.set('thesis_subject_codes',this.disciplines.join());
+			this.params.set('thesis_subjects', this.selected_disciplines.join());
 		}
-		if (this.methods != null) {
-			this.params.set('methods_in_use',this.disciplines.join());
+		if (this.selected_methods != null) {
+			this.params.set('methods_in_use', this.selected_methods.join());
 		}
-		
-	
 
 		console.log("Concatenated search parameters = " + this.params.toString());
 
-		/* sends query parameters or url,
-		 and invoke search method in parent component to call search service
+		/* 
+		 Invoke search method with query parameters or url value 
+		 in parent component to call search service
 		 */
 		this.searchEvent.emit(this.baseUrl + this.params.toString());
 

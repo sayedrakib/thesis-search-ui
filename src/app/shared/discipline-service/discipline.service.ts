@@ -11,19 +11,20 @@ export class DisciplineService {
 
   disciplineList: any;
 
-
+/*
   constructor(private _http: Http) {
 
     var disciData = _http.get('https://minerva.lib.jyu.fi/thesis/thesis-api/disciplines')
       .map(res => res.json())
       .subscribe(data => {
-        console.log(data);
+        console.log("Data: "+ data);
         this.disciplineList = JSON.stringify(data);
         console.log("discipline service Constructor--: " + this.disciplineList );
         });
 
     console.log("discipline service Constructor: " + this.disciplineList );
   }
+      */
 /*
   function getDisciplines(): {
   return disciData;

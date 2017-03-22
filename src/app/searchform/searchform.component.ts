@@ -53,8 +53,8 @@ export class SearchformComponent {
 
 	private methods: IMultiSelectOption[];
 	private textInput: string = "";
-	private selected_methods: number[];
-	private selected_disciplines: number[];
+	private selected_methods: string[];
+	private selected_disciplines: string[];
 	private selected_levels = ["master", "bachelor", "doctoral", "other"];
 	//private methods: IMultiSelectOption[] = this.methodListService.getMethods();
 	//private disciplines: IMultiSelectOption[] = this.disciplineService.getDisciplines();
@@ -94,7 +94,7 @@ export class SearchformComponent {
 			this.params.set('methods_in_use', this.selected_methods.join());
 		}
 
-		console.log("Concatenated search parameters = " + this.params.toString());
+		//console.log("Concatenated search parameters = " + this.params.toString());
 
 		/* 
 		 Invoke search method with query parameters or url value 
@@ -102,6 +102,15 @@ export class SearchformComponent {
 		 */
 		this.searchEvent.emit(this.baseUrl + this.params.toString());
 
+	}
+
+
+	display_selected_methods: string;
+
+	ngDoCheck() {
+		if (this.selected_methods) {
+			this.display_selected_methods = "Methods: " + this.selected_methods;
+		}
 	}
 
 	private defaultTitle_method: IMultiSelectTexts = {

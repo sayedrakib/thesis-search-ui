@@ -8,22 +8,23 @@
 		minlength="3" maxlength="100" placeholder="Type what you want to search for...">
 
 		<!-- Text input validation messeges -->
+		<!--
 		<div *ngIf="searchText.errors && (searchText.dirty || searchText.touched)" class="alert alert-danger">
 			<div [hidden]="!searchText.errors.required"> Input required! </div>
 			<div [hidden]="!queryData.controls.searchText.errors.pattern"> Only alphanumeric characters! </div>
 			<div [hidden]="!searchText.errors.minlength"> Type at least 3 characters! </div>
 			<div [hidden]="!searchText.errors.maxlength"> Maximum 100 characters! </div>
 		</div>
-
+		-->
 		<br>
 
 		<div>
 			<ss-multiselect-dropdown [(ngModel)]="selected_methods" name="selected_methods" [options]="methods" [settings]="settings_forSearch"
 				[texts]="defaultTitle_method"></ss-multiselect-dropdown>
-			<ss-multiselect-dropdown [(ngModel)]="selected_disciplines" name="selected_disciplines" [options]="disciplines" [settings]="settings_forSearch"
-				[texts]="defaultTitle_discipline"></ss-multiselect-dropdown>
-			<ss-multiselect-dropdown [(ngModel)]="selected_levels" name="selected_levels" [options]="levels" [settings]="settings_forCheckAll"
-				[texts]="defaultTitle_level"></ss-multiselect-dropdown>
+				<ss-multiselect-dropdown [(ngModel)]="selected_disciplines" name="selected_disciplines" [options]="disciplines" [settings]="settings_forSearch"
+					[texts]="defaultTitle_discipline"></ss-multiselect-dropdown>
+					<ss-multiselect-dropdown [(ngModel)]="selected_levels" name="selected_levels" [options]="levels" [settings]="settings_forCheckAll"
+						[texts]="defaultTitle_level"></ss-multiselect-dropdown>
 		</div>
 
 		<br>
@@ -42,11 +43,11 @@
 	</div>
 	<div>
 		<!--<p>JSON Object: {{ queryData.value | json }}</p>-->
-		<table> 
-			<tr>Methods: {{ selected_methods }} </tr>
-			<tr>Disciplines: {{selected_disciplines}} </tr> 
-			<tr>Levels: {{selected_levels}} </tr>
+		<table class="search_criteria">
+			<!--<tr>{{display_selected_methods}}</tr>-->
+			<tr><b>Methods:</b> <span [innerHTML]="display_selected_methods"> Not selected yet </span></tr>
+			<tr><b>Disciplines:</b> {{selected_disciplines}} </tr>
+			<tr><b>Levels:</b> {{selected_levels}} </tr>
 		</table>
-		<div>
-
-		</div>
+	</div>
+</div>

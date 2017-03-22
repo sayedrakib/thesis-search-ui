@@ -1,5 +1,8 @@
+
+<div class="search-result">
+
 <h3>Search results</h3>
-<div>
+
   <div *ngIf="searchResults">
     <p>Total results: {{searchResults.length}}</p>
   </div>
@@ -16,14 +19,16 @@
     <clr-dg-row *clrDgItems="let item of searchResults">
 
       <clr-dg-cell> {{item.thesis_type_label}} </clr-dg-cell>
-      <clr-dg-cell> {{item.first_authors}} </clr-dg-cell>    
+      <clr-dg-cell> {{item.first_authors}} </clr-dg-cell>
       <clr-dg-cell> <a href="{{item.catalogue_url}}" target="_blank">{{item.full_title}}</a> </clr-dg-cell>
       <clr-dg-cell> {{item.publishing_date}} </clr-dg-cell>
-      
+
     </clr-dg-row>
-
-    <!--<clr-dg-footer>{{searchResults.length}} items</clr-dg-footer>-->
-
+    
+    <div *ngIf="searchResults">
+      <clr-dg-footer>{{searchResults.length}} items</clr-dg-footer>
+    </div>
+    
   </clr-datagrid>
 
 

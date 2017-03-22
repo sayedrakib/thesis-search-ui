@@ -1,0 +1,39 @@
+.search-result {
+    font-family: aleo, serif;
+    color: #002957;
+}
+
+.search-result h3{
+    font-family: aleo, serif;
+    color: #002957;
+}
+
+clr-dg-placeholder {
+    border-bottom: 1px solid #ccc;
+    color: #9a9a9a;
+   
+}
+
+clr-datagrid{
+    margin-bottom: 130px;
+    background-color: red;
+}
+
+.search-result{
+    margin-bottom: 130px;
+}
+
+/*.datagrid-column-title{
+    color: #007cbb;
+    background-color: blue;
+}
+.datagrid .datagrid-column .datagrid-column-title{
+        color: #007cbb;
+    background-color: blue;
+}
+
+div.datagrid-head > div > clr-dg-column:nth-child(3) > div > button.datagrid-column-title {
+     color: #007cbb;
+    background-color: blue;
+}
+*/

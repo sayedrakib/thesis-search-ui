@@ -109,7 +109,8 @@ export class SearchformComponent {
 
 	ngDoCheck() {
 		if (this.selected_methods) {
-			this.display_selected_methods = "Methods: " + this.selected_methods;
+			console.log(this.selected_methods);
+			this.display_selected_methods = this.selected_methods + " ";
 		}
 	}
 
@@ -118,7 +119,7 @@ export class SearchformComponent {
 	};
 
 	private defaultTitle_discipline: IMultiSelectTexts = {
-		defaultTitle: 'Select Discipline(s)'
+		defaultTitle: 'Checked none'
 	};
 
 	private defaultTitle_level: IMultiSelectTexts = {

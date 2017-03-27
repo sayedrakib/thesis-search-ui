@@ -1,7 +1,6 @@
 <!--<ss-multiselect-dropdown [options]="myOptions" [(ngModel)]="selectedOptions" (ngModelChange)="onChange($event)"></ss-multiselect-dropdown>-->
 
-<h3>Thesis Search </h3>
-
+<br>
 <form novalidate #queryData="ngForm" (ngSubmit)="goSearch(queryData)">
 
 	<input [(ngModel)]="textInput" type="search" pattern="[a-zäöåA-ZÄÖÅ0-9-\s]+" class="form-control" name="searchText" #searchText="ngModel"
@@ -18,36 +17,64 @@
 		-->
 		<br>
 
-		<div>
-			<ss-multiselect-dropdown [(ngModel)]="selected_methods" name="selected_methods" [options]="methods" [settings]="settings_forSearch"
-				[texts]="defaultTitle_method"></ss-multiselect-dropdown>
-				<ss-multiselect-dropdown [(ngModel)]="selected_disciplines" name="selected_disciplines" [options]="disciplines" [settings]="settings_forSearch"
-					[texts]="defaultTitle_discipline"></ss-multiselect-dropdown>
+		<div class="row">
+			<div class="col-md-3 text-center">
+				<div><label> Select Method(s)</label></div>
+				<div>
+					<ss-multiselect-dropdown [(ngModel)]="selected_methods" name="selected_methods" [options]="methods" [settings]="settings_forSearch"
+						[texts]="defaultTitle_method"></ss-multiselect-dropdown>
+				</div>
+			</div>
+
+			<div class="col-md-3 text-center">
+				<div><label> Select Disciplines(s)</label></div>
+				<div>
+					<ss-multiselect-dropdown [(ngModel)]="selected_disciplines" name="selected_disciplines" [options]="disciplines" [settings]="settings_forSearch"
+						[texts]="defaultTitle_discipline"></ss-multiselect-dropdown>
+				</div>
+
+			</div>
+			<div class="col-md-3 text-center">
+				<div><label> Select Level(s)</label></div>
+				<div>
 					<ss-multiselect-dropdown [(ngModel)]="selected_levels" name="selected_levels" [options]="levels" [settings]="settings_forCheckAll"
 						[texts]="defaultTitle_level"></ss-multiselect-dropdown>
+				</div>
+			</div>
+			<div class="col-md-3 text-center">
+				<label> From <input [(ngModel)]="year_from" type="number"  class="form-control" name="year_from" min="1901" max="2100" placeholder="Year"></label>
+				<label> To <input [(ngModel)]="year_to" type="number" class="form-control" name="year_to" min="1901" max="2100" placeholder="year"></label>
+			</div>
 		</div>
 
-		<br>
+		<div class="search-btn "> <button type="submit" class="btn btn-default center-block">Search</button> </div>
 
-		<div>
-			<label> From <input [(ngModel)]="year_from" type="number"  class="form-control" name="year_from" min="1901" max="2100" placeholder="Year"></label>
-			<label> To <input [(ngModel)]="year_to" type="number" class="form-control" name="year_to" min="1901" max="2100" placeholder="year"></label>
-			<button type="submit" class="btn btn-default">Search</button>
-		</div>
-
-		<hr>
+			<hr>
 </form>
-<div>
+<div class="search-criteria">
 	<div>
 		<h3> Selected search criteria </h3>
 	</div>
 	<div>
 		<!--<p>JSON Object: {{ queryData.value | json }}</p>-->
-		<table class="search_criteria">
-			<!--<tr>{{display_selected_methods}}</tr>-->
-			<tr><b>Methods:</b> <span [innerHTML]="display_selected_methods"> Not selected yet </span></tr>
+		<!--
+		<table class="search-criteria">
+			<tr><b>Methods:</b> <span [innerHTML]="display_selected_methods"> </span></tr>
 			<tr><b>Disciplines:</b> {{selected_disciplines}} </tr>
 			<tr><b>Levels:</b> {{selected_levels}} </tr>
 		</table>
+		-->
+		<dl>
+			<dt>Methods</dt>
+			<dd>{{display_selected_methods}}</dd>
+			<dd>{{display_selected_methods}}</dd>
+			<dd>{{display_selected_methods}}</dd>
+			<dd>{{display_selected_methods}}</dd>
+			<dt>Disciplines</dt>
+			<dd>{{display_selected_methods}}</dd>
+			<dd>{{display_selected_methods}}</dd>
+			<dt>Levels</dt>
+			<dd>{{selected_levels}}</dd>
+		</dl>
 	</div>
 </div>

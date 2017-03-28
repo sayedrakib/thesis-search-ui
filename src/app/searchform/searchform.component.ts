@@ -96,14 +96,12 @@ export class SearchformComponent {
 
 		//console.log("Concatenated search parameters = " + this.params.toString());
 
-		/* 
-		 Invoke search method with query parameters or url value 
-		 in parent component to call search service
-		 */
 		this.searchEvent.emit(this.baseUrl + this.params.toString());
 
 	}
 
+
+	show: boolean = false;
 
 	display_selected_methods: string;
 
@@ -115,7 +113,7 @@ export class SearchformComponent {
 	}
 
 	private defaultTitle_method: IMultiSelectTexts = {
-		defaultTitle: 'Select Method(s)'
+		defaultTitle: 'Checked none'
 	};
 
 	private defaultTitle_discipline: IMultiSelectTexts = {
@@ -123,7 +121,7 @@ export class SearchformComponent {
 	};
 
 	private defaultTitle_level: IMultiSelectTexts = {
-		defaultTitle: 'Select level(s)'
+		defaultTitle: 'Checked none'
 	};
 
 	private settings_forSearch: IMultiSelectSettings = {

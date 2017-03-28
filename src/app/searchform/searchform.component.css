@@ -20,3 +20,16 @@
     width: 200px;
    
 }
+
+.show-hide-link {
+    margin-top: 15px;
+}
+
+.show-hide-link a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+hr {
+    margin-top: 5px;
+}

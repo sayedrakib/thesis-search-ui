@@ -6,8 +6,8 @@ import { MethodService, Method, DisciplineService, Discipline, Item, Searchresul
   selector: 'app-searchresult',
   templateUrl: './searchresult.component.html',
   styleUrls: ['./searchresult.component.css', 
-                '/home/sarahasa_/Documents/Thesis-Search-Projects/thesis-search-ui-v2/node_modules/clarity-ui/clarity-ui.min.css',
-              '/home/sarahasa_/Documents/Thesis-Search-Projects/thesis-search-ui-v2/node_modules/clarity-icons/clarity-icons.min.css'       
+                '../../../node_modules/clarity-ui/clarity-ui.min.css',
+              '../../../node_modules/clarity-icons/clarity-icons.min.css'       
 ],
 encapsulation: ViewEncapsulation.Native
 })

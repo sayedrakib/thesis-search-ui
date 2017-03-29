@@ -48,7 +48,7 @@ line-height: 100px;
      height: 120px;
      width: 120px;
      background: #002957;
-     position: absolute;
+     position: relative;
      vertical-align: top;
      display: inline-block;
  }
@@ -71,18 +71,18 @@ line-height: 100px;
  }
  .uni-name {
      height: 120px;
-     display: inline-block;
      font-size: 32px;
-     text-align: center;
-    /* margin-left: 150px;*/
-    margin-left: 20%;
-
+     vertical-align: middle;
+     float: right;
+     margin-right: 30px;
  }
+
  .uni-name a {
      text-decoration: none;
      font-family: Aleo, serif;
      color: #002957;
      margin-top: 40px;
      display: block;
- }
+     font-weight: bold;
+   }
  

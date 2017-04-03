@@ -1,4 +1,4 @@
-import { Component, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, ViewEncapsulation } from '@angular/core';
 import { MethodService, Method, DisciplineService, Discipline, Item, SearchresultService } from './shared/index';
 
 
@@ -6,7 +6,7 @@ import { MethodService, Method, DisciplineService, Discipline, Item, Searchresul
 @Component({
 	selector: 'app-root',
 	templateUrl: './app.component.html',
-	styleUrls: ['./app.component.css'],
+	styleUrls: ['./app.component.css']
 })
 export class AppComponent {
 

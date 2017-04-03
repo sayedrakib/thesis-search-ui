@@ -1,3 +1,4 @@
+/* searchform.component.css */
 .ng-valid[required], .ng-valid.required {
     border-left: 5px solid #42A948; /* green */
 }
@@ -32,4 +33,9 @@
 
 hr {
     margin-top: 5px;
+}
+
+.checkbox-fulltext { 
+    padding-top: 20px;
+    text-align: left;
 }

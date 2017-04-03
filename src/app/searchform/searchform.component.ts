@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
 import { URLSearchParams, QueryEncoder } from '@angular/http';
 
 import { MultiselectDropdown, IMultiSelectOption, IMultiSelectSettings, IMultiSelectTexts } from 'angular-2-dropdown-multiselect/src/multiselect-dropdown';
@@ -10,11 +10,11 @@ import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
-
 @Component({
 	selector: 'app-searchform',
 	templateUrl: './searchform.component.html',
 	styleUrls: ['./searchform.component.css']
+	
 })
 export class SearchformComponent {
 
@@ -68,6 +68,7 @@ export class SearchformComponent {
 	private level_ds: boolean = true;
 	private year_from: string = '1900';
 	private year_to: string = '2020';
+	private fulltext: boolean = false;
 	private params = new URLSearchParams('', new QueryEncoder());
 
 	private searchParameters: string;
@@ -78,9 +79,16 @@ export class SearchformComponent {
 
 	goSearch({value, valid}: { value: any, valid: boolean }) {
 
-		if (this.textInput != "") {
+		
+
+		if (this.textInput != '') {
 			this.params.set('q', this.textInput);
+		} 
+		else {
+			this.params.delete('q');
 		}
+		
+			
 		this.params.set('from_year', this.year_from);
 		this.params.set('to_year', this.year_to);
 
@@ -90,28 +98,31 @@ export class SearchformComponent {
 		if (this.selected_disciplines != null) {
 			this.params.set('thesis_subjects', this.selected_disciplines.join());
 		}
-		if (this.selected_methods != null) {
+		if (this.selected_methods === undefined ) {
+			this.params.delete('methods_in_use');
+		} else {
 			this.params.set('methods_in_use', this.selected_methods.join());
 		}
 
-		//console.log("Concatenated search parameters = " + this.params.toString());
+
+		this.params.set('fulltext', this.fulltext.toString());
+
+		console.log("Concatenated search parameters = " + this.params.toString());
 
 		this.searchEvent.emit(this.baseUrl + this.params.toString());
 
 	}
 
-
-	show: boolean = false;
-
+	show_selected_criteria: boolean = false;
+/*
 	display_selected_methods: string;
-
 	ngDoCheck() {
 		if (this.selected_methods) {
 			console.log(this.selected_methods);
 			this.display_selected_methods = this.selected_methods + " ";
 		}
 	}
-
+*/
 	private defaultTitle_method: IMultiSelectTexts = {
 		defaultTitle: 'Checked none'
 	};

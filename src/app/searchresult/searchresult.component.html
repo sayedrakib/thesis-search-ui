@@ -1,7 +1,42 @@
+<!--
+  <link rel="stylesheet" href="../../../node_modules/clarity-icons/clarity-icons.min.css">
+  <link rel="stylesheet" href="../../../node_modules/clarity-ui/clarity-ui.min.css">
+  -->
+
+
 <div class="search-result">
-
   <h3>Search results</h3>
+</div>
 
+<table class="sortable-theme-bootstrap" data-sortable>
+  <thead>
+    <tr>
+      <th>Tyyppi</th>
+      <th>Tekijä</th>
+      <th>Otsikko</th>
+      <th>Julkaistu</th>
+      <th>Full-Text</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of searchResults">
+      <td data-value="1"> {{item.thesis_type_label}} </td>
+      <td>{{item.first_authors}}</td>
+      <td> <a href="{{item.catalogue_url}}" target="_blank">{{item.full_title}}</a> </td>
+      <td data-value="1">{{item.publishing_date}}</td>
+      <td>
+        <a *ngIf="item.fulltext_url.length > 0" href="{{item.fulltext_url}}" target="_blank">
+          <i class="fa fa-file-text-o"></i>
+        </a>
+      </td>
+    </tr>
+
+
+  </tbody>
+</table>
+
+
+<!--
   <div *ngIf="searchResults">
     <p>Total results: {{searchResults.length}}</p>
   </div>
@@ -32,11 +67,4 @@
 
 
   </clr-datagrid>
-
-
-
-
-
-
-
-</div>
+-->

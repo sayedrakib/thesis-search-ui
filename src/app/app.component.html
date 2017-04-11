@@ -1,14 +1,43 @@
-<div id="app-component">
+<div class="wrapper">
 
-<!--------------Div for Search Form---------------->
-  <div class="container">
-    <app-searchform (searchEvent)="search($event)"> </app-searchform>
+  <div class="header">
+    <p class="container">
+      <a href="https://www.jyu.fi/en/">University of Jyväskylä</a>
+
+      <span class="separator">|</span>
+      <a href="https://osc.jyu.fi/en">Open Science Center</a>
+
+      <span class="separator">|</span>
+      <a href="/">Thesis Search</a>
+    </p>
   </div>
-
-
-<!--------------Div for Search Result---------------->
-  <div class="container text-center">
-    <app-searchresult [searchResults]="searchResults"> </app-searchresult>
+  <div class="content">
+    <!--------------Div for Search Form---------------->
+    <div class="container">
+      <app-searchform (searchEvent)="search($event)"> </app-searchform>
+    </div>
+    <!--------------Div for Search Result---------------->
+    <div class="container text-center">
+      <app-searchresult [searchResults]="searchResults"> </app-searchresult>
+    </div>
   </div>
+ 
+  <div class="footer">
 
+
+    <div class="uni-logo">
+      <a href="https://www.jyu.fi/en/" class='site-logo'> </a>
+    </div>
+    <!--
+      <div class="social-links">
+        <a href="https://twitter.com/uniofjyvaskyla"><i class="fa fa-twitter"></i></a>
+        <a href="https://www.instagram.com/uniofjyvaskyla/"><i class="fa fa-instagram"></i></a>
+        <a href="https://www.facebook.com/JyvaskylaUniversity/"><i class="fa fa-facebook"></i></a>
+        <a href="https://www.youtube.com/user/JyvaskylaUniversity"><i class="fa fa-youtube"></i></a>
+      </div> -->
+    <div class="uni-name">
+      <a href="https://www.jyu.fi/en/">University of Jyväskylä</a>
+    </div>
+
+  </div>
 </div>

@@ -5,11 +5,18 @@ import { MethodService, Method, DisciplineService, Discipline, Item, Searchresul
 @Component({
   selector: 'app-searchresult',
   templateUrl: './searchresult.component.html',
-  styleUrls: ['./searchresult.component.css', 
-                '../../../node_modules/clarity-ui/clarity-ui.min.css',
-              '../../../node_modules/clarity-icons/clarity-icons.min.css'       
-],
-encapsulation: ViewEncapsulation.Native
+  styleUrls: ['./searchresult.component.css',
+
+
+  ],
+  /*
+    styleUrls: ['./searchresult.component.css',
+    '../../../node_modules/clarity-icons/clarity-icons.min.css',
+    '../../../node_modules/clarity-ui/clarity-ui.min.css',
+      '/../assets/sortable/sortable-theme-bootstrap.css'
+  ]
+  */
+  encapsulation: ViewEncapsulation.None
 })
 export class SearchresultComponent {
 

@@ -17,16 +17,13 @@
       "tsconfig": "tsconfig.json",
       "prefix": "app",
       "mobile": false,
-      "styles": [
+      "styles": ["styles.css", "assets/sortable/sortable-theme-bootstrap.css"],
+      "scripts": [
+"assets/sortable/sortable.min.js"
 
       ],
-      "scripts": [
-                "../node_modules/mutationobserver-shim/dist/mutationobserver.min.js",
-        "../node_modules/@webcomponents/custom-elements/custom-elements.min.js",
-        "../node_modules/clarity-icons/clarity-icons.min.js"
-      ],
+      "environmentSource": "environments/environment.ts",
       "environments": {
-        "source": "environments/environment.ts",
         "dev": "environments/environment.ts",
         "prod": "environments/environment.prod.ts"
       }

@@ -2,7 +2,7 @@
 /*searchresult.component.css*/
 .search-result {
 
-    color: #002957;
+    color: red;
 }
 
 .search-result h3{
@@ -16,14 +16,7 @@ clr-dg-placeholder {
    
 }
 
-clr-datagrid{
-    margin-bottom: 130px;
-    background-color: red;
-}
 
-.search-result{
-    margin-bottom: 130px;
-}
 
 /*.datagrid-column-title{
     color: #007cbb;

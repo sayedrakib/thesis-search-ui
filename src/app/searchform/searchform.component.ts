@@ -13,7 +13,8 @@ import 'rxjs/add/operator/map';
 @Component({
 	selector: 'app-searchform',
 	templateUrl: './searchform.component.html',
-	styleUrls: ['./searchform.component.css']
+	styleUrls: ['./searchform.component.css'],
+	encapsulation: ViewEncapsulation.Emulated
 	
 })
 export class SearchformComponent {

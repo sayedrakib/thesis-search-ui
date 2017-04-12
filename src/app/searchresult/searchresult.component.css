@@ -1,34 +1,27 @@
 
 /*searchresult.component.css*/
-.search-result {
-
-    color: red;
-}
-
 .search-result h3{
-
     color: #002957;
 }
 
-clr-dg-placeholder {
-    border-bottom: 1px solid #ccc;
-    color: #9a9a9a;
-   
+table[data-sortable].sortable-theme-bootstrap {
+  font-family: Lato,sans-serif;
+  font-size: 15px;
+  line-height: 20px;
+  color: #002957;
+  background: white;
+  width: 100%;
 }
 
-
-
-/*.datagrid-column-title{
-    color: #007cbb;
-    background-color: blue;
+.th-Tyypi {
+    width: 10%;
 }
-.datagrid .datagrid-column .datagrid-column-title{
-        color: #007cbb;
-    background-color: blue;
+.th-Tekija {
+    width: 10%;
 }
-
-div.datagrid-head > div > clr-dg-column:nth-child(3) > div > button.datagrid-column-title {
-     color: #007cbb;
-    background-color: blue;
+.th-Full-Text {
+    width: 10%;
 }
-*/
+.th-Julkaisu {
+    width: 10%;
+}

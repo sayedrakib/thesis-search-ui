@@ -23,7 +23,6 @@
 					[texts]="defaultTitle_method"></ss-multiselect-dropdown>
 			</div>
 		</div>
-
 		<div class="col-sm-2 text-center">
 			<div><label> Discipline(s)</label></div>
 			<div>
@@ -42,25 +41,23 @@
 		<div class="col-sm-3 text-center">
 
 
-			<div class="col-sm-6 year-from">
-				<div class="form-group">
-					<label>From</label>
-					<div> <input [(ngModel)]="year_from" type="number" class="btn btn-default" name="year_from" min="1901" max="2100" placeholder="Year">						</div>
-				</div>
+			<div class="col-sm-6">
+				<div> <label>From</label> </div>
+				<div class="year-from"> <input [(ngModel)]="year_from" type="number" class="btn btn-default" name="year_from" min="1901" max="2100" placeholder="Year"></div>
+
 			</div>
 			<div class="col-sm-6">
-				<div class="form-group">
-					<label>To</label>
-					<input [(ngModel)]="year_to" type="number" class="btn btn-default" name="year_to" min="1901" max="2100" placeholder="year">
+				<div> <label>To</label> </div>
+				<div class="year-to"> <input [(ngModel)]="year_to" type="number" class="btn btn-default" name="year_to" min="1901" max="2100" placeholder="year">
 				</div>
 			</div>
 		</div>
-
 		<div class="col-sm-3 checkbox-fulltext">
-			<input type="checkbox" [(ngModel)]="fulltext" name="fulltext" >
+			<input type="checkbox" [(ngModel)]="fulltext" name="fulltext">
 			<label> Full-Text Online  </label>
 		</div>
 	</div>
+
 
 </form>
 

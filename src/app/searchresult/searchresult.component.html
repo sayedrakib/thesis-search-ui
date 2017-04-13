@@ -4,6 +4,7 @@
   -->
 
 
+<p *ngIf="searchResults" class="results-length">Total results: {{searchResults.length}} </p>
 
 <table class="sortable-theme-bootstrap" data-sortable>
   <thead>
@@ -12,7 +13,7 @@
       <th class="th-Tekija">Tekijä</th>
       <th>Otsikko</th>
       <th class="th-Julkaisu">Julkaistu</th>
-      <th class="th-Full-Text">Full-Text</th>
+      <th class="th-Full-Text">PDF</th>
     </tr>
   </thead>
   <tbody>
@@ -21,7 +22,7 @@
       <td>{{item.first_authors}}</td>
       <td> <a href="{{item.catalogue_url}}" target="_blank">{{item.full_title}}</a> </td>
       <td>{{item.publishing_date}}</td>
-      <td>
+      <td >
         <a *ngIf="item.fulltext_url.length > 0" href="{{item.fulltext_url}}" target="_blank">
           <i class="fa fa-file-text-o"></i>
         </a>

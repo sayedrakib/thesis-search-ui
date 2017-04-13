@@ -14,14 +14,17 @@ table[data-sortable].sortable-theme-bootstrap {
 }
 
 .th-Tyypi {
-    width: 10%;
+    width: 13%;
 }
 .th-Tekija {
-    width: 10%;
-}
-.th-Full-Text {
-    width: 10%;
+    width: 13%;
 }
 .th-Julkaisu {
-    width: 10%;
+    width: 15%;
+}
+.th-Full-Text {
+    width: 12%;
+}
+.results-length {
+    text-align: left;
 }

@@ -33,6 +33,7 @@
 
 hr {
     margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .checkbox-fulltext { 
@@ -47,13 +48,10 @@ hr {
     max-width: 90px;
     padding-right: 1px;
 }
-.dropdown button {
+
+/*  check this definition in Styles.css
+button.dropdown-toggle.btn.btn-default {
     padding-left: 6px !important;
     padding-right: 6px;
-    color:red;
 }
-ss-multiselect-dropdown > div > button {
-        padding-left: 6px !important;
-    padding-right: 6px;
-    color:red;
-}
+*/

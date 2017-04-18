@@ -15,16 +15,17 @@ table[data-sortable].sortable-theme-bootstrap {
 
 .th-Tyypi {
     width: 13%;
+
 }
 .th-Tekija {
     width: 13%;
 }
 .th-Julkaisu {
-    width: 15%;
+    width: 17%;
 }
 .th-Full-Text {
     width: 12%;
 }
 .results-length {
-    text-align: left;
+    text-align: right;
 }

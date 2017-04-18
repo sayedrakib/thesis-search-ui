@@ -1,4 +1,7 @@
-/* searchform.component.css */
+.search-form-container {
+    padding-top: 1px;
+}
+
 .ng-valid[required], .ng-valid.required {
     border-left: 5px solid #42A948; /* green */
 }
@@ -12,14 +15,13 @@
     text-align:left;
 }
 
-.search-btn{
-    margin-top: 30px;
-
+.text-input {
+   margin-top: 10px;
 }
 
-.search-btn .center-block {
-    width: 200px;
-   
+.search-btn{
+   border: 1px solid #002957;
+   margin-top: 10px;
 }
 
 .show-hide-link {
@@ -40,16 +42,21 @@ hr {
     padding-top: 20px;
     text-align: center;
 }
+
 .year-from input{
-    max-width: 90px;
-    padding-right: 1px;
+    max-width: 70px;
+    padding-right: 3px;
+
 }
 .year-to input{
-    max-width: 90px;
-    padding-right: 1px;
+    max-width: 70px;
+    padding-right: 3px;
+
 }
 
+
 /*  check this definition in Styles.css
+
 button.dropdown-toggle.btn.btn-default {
     padding-left: 6px !important;
     padding-right: 6px;

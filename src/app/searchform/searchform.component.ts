@@ -67,8 +67,8 @@ export class SearchformComponent {
 	];
 	private level_ms: boolean = true;
 	private level_ds: boolean = true;
-	private year_from: string = '1900';
-	private year_to: string = '2020';
+	private year_from: string = '2009';
+	private year_to: string = '2010';
 	private fulltext: boolean = false;
 	private params = new URLSearchParams('', new QueryEncoder());
 

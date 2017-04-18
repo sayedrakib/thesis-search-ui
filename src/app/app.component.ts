@@ -19,6 +19,7 @@ export class AppComponent {
 	search(url: any) {
 		this.searchresultService.search(url).subscribe(
 			data => this.searchResults = data,
+			
 			error => console.log("Error message: " + error)
 		);
 	}

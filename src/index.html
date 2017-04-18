@@ -18,7 +18,53 @@
   <link rel="stylesheet" href="styles.css" type="text/css" />
 
   <script src="/assets/sortable/sortable.min.js"></script>
+  <script>
   
+  fulltextRegExp = /^\h\w*/;
+  /*
+    customTypes= [
+      {
+      name: 'numeric',
+      defaultSortDirection: 'descending',
+      match: function(a) {
+        return a.match(numberRegExp);
+      },
+      comparator: function(a) {
+        return parseFloat(a.replace(/[^0-9.-]/g, ''), 10) || 0;
+      }
+    }, {
+      name: 'date',
+      defaultSortDirection: 'ascending',
+      reverse: true,
+      match: function(a) {
+        return !isNaN(Date.parse(a));
+      },
+      comparator: function(a) {
+        return Date.parse(a) || 0;
+      }
+    }, {
+      name: 'alpha',
+      defaultSortDirection: 'ascending',
+      match: function() {
+        return true;
+      },
+      compare: function(a, b) {
+        return a.localeCompare(b);
+      }
+    },{
+      name: 'fulltext',
+      match: function(a) {
+        return a.match(fulltextRegExp)},
+      comparator: function(a) {
+        console.log(fulltextRegExp.test(a));
+        return fulltextRegExp.test(a);
+    }}];
+    */
+    //Sortable.setupTypes(customTypes);
+    
+
+
+  </script>
   <link rel="stylesheet" href="/assets/sortable/sortable-theme-bootstrap.css" />
 </head>
 

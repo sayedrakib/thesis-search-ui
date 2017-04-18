@@ -14,6 +14,8 @@ export class SearchresultComponent {
 
   @Input() searchResults: Array<Item>;
 
+  private fullText = 0; 
+
 }
 
 

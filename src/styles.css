@@ -7,3 +7,11 @@ button.dropdown-toggle.btn.btn-default {
     padding-left: 6px !important;
     padding-right: 6px;
 }
+
+td.fulltext {
+    color:red;
+}
+
+.hide {
+    display:none;
+}

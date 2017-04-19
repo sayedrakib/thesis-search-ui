@@ -13,8 +13,13 @@ export class SearchresultComponent {
   constructor(private searchresultService: SearchresultService) { }
 
   @Input() searchResults: Array<Item>;
+ 
 
-  private fullText = 0; 
+  private fullText = 0; // !!!!!!
+
+ ngAfterContentChecked(){
+  
+ }
 
 }
 

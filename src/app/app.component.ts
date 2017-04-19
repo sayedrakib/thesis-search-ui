@@ -12,14 +12,12 @@ import { MethodService, Method, DisciplineService, Discipline, Item, Searchresul
 export class AppComponent {
 
 	constructor(private searchresultService: SearchresultService) { }
-	private searchQ;
 
 	searchResults: Array<Item>;
 
 	search(url: any) {
 		this.searchresultService.search(url).subscribe(
 			data => this.searchResults = data,
-			
 			error => console.log("Error message: " + error)
 		);
 	}

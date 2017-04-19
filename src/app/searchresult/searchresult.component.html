@@ -14,7 +14,7 @@
       <th class="th-Tyypi">Tyyppi </th>
       <th class="th-Tekija">Tekijä</th>
       <th>Otsikko</th>
-      <th class="th-Julkaisu">Julkaistu</th>
+      <th class="th-Julkaisu" data-sortable-type="date">Julkaistu</th>
       <th class="th-Full-Text">PDF</th>
 
     </tr>
@@ -24,8 +24,8 @@
       <td> {{item.thesis_type_label}} </td>
       <td>{{item.first_authors}}</td>
       <td> <a href="{{item.catalogue_url}}" target="_blank">{{item.full_title}}</a> </td>
-      <td>{{item.publishing_date}}</td>
-      <td  attr.data-value="{{item.fulltext_url}}" class="fulltext">
+      <td attr.data-value="{{item.publishing_date}}" >{{item.publishing_date}}</td>
+      <td  attr.data-value="{{item.fulltext_url}}">
         <a *ngIf="item.fulltext_url.length > 0" href="{{item.fulltext_url}}" target="_blank">
           <i class="fa fa-file-text-o"></i>
         </a>

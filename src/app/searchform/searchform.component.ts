@@ -15,7 +15,7 @@ import 'rxjs/add/operator/map';
 	templateUrl: './searchform.component.html',
 	styleUrls: ['./searchform.component.css'],
 	encapsulation: ViewEncapsulation.Emulated
-	
+
 })
 export class SearchformComponent {
 
@@ -54,9 +54,9 @@ export class SearchformComponent {
 
 	private methods: IMultiSelectOption[];
 	private textInput: string = "";
-	private selected_methods: string[];
-	private selected_disciplines: string[];
-	private selected_levels = ["master", "bachelor", "doctoral", "other"];
+	private selected_methods: string[] = [];
+	private selected_disciplines: string[] = [];
+	private selected_levels: string[] = ["master", "bachelor", "doctoral", "other"];
 	//private methods: IMultiSelectOption[] = this.methodListService.getMethods();
 	//private disciplines: IMultiSelectOption[] = this.disciplineService.getDisciplines();
 	private levels: IMultiSelectOption[] = [
@@ -80,50 +80,50 @@ export class SearchformComponent {
 
 	goSearch({value, valid}: { value: any, valid: boolean }) {
 
-		
+
 
 		if (this.textInput != '') {
 			this.params.set('q', this.textInput);
-		} 
+		}
 		else {
 			this.params.delete('q');
 		}
-		
-			
+
+
 		this.params.set('from_year', this.year_from);
 		this.params.set('to_year', this.year_to);
 
-		if (this.selected_levels != null) {
+		if (this.selected_levels.length > 0) {
 			this.params.set('thesis_type', this.selected_levels.join());
-		}
-		if (this.selected_disciplines != null) {
-			this.params.set('thesis_subjects', this.selected_disciplines.join());
-		}
-		if (this.selected_methods === undefined ) {
-			this.params.delete('methods_in_use');
 		} else {
-			this.params.set('methods_in_use', this.selected_methods.join());
+			this.params.delete('thesis_type');
 		}
 
+		if (this.selected_disciplines.length > 0) {
+			this.params.set('thesis_subjects', this.selected_disciplines.join());
+		} else {
+			this.params.delete('thesis_subjects');
+		}
 
-		this.params.set('fulltext', this.fulltext.toString());
+		if (this.selected_methods.length > 0) {
+			this.params.set('methods_in_use', this.selected_methods.join());
+		} else {
+			this.params.delete('methods_in_use');
+		}
+
+		var fulltextOption = this.fulltext ? 1 : 0;
+		this.params.set('fulltext', fulltextOption.toString());
 
 		console.log("Concatenated search parameters = " + this.params.toString());
+
+		
 
 		this.searchEvent.emit(this.baseUrl + this.params.toString());
 
 	}
 
 	show_selected_criteria: boolean = false;
-/*
-	display_selected_methods: string;
-	ngDoCheck() {
-		if (this.selected_methods) {
-			console.log(this.selected_methods);
-			this.display_selected_methods = this.selected_methods + " ";
-		}
-	}
-*/
+
 	private defaultTitle_method: IMultiSelectTexts = {
 		defaultTitle: 'Checked none'
 	};

@@ -16,10 +16,21 @@
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
   <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/aleo" type="text/css" />
   <link rel="stylesheet" href="styles.css" type="text/css" />
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="/assets/sortable/sortable-theme-bootstrap.css" />
 
   <script src="/assets/sortable/sortable.js"></script>
- 
-  <link rel="stylesheet" href="/assets/sortable/sortable-theme-bootstrap.css" />
+
+  <script type="text/Javascript">
+    $(document).ready(function(){ 
+      $(".search-btn").click(function(){ 
+        $("th").attr("data-sorted", "false"); 
+      }); 
+    });
+  </script>
+
 </head>
 
 
@@ -27,7 +38,7 @@
 
   <!--------------Div for Angular components---------------->
   <app-root>Loading...</app-root>
-  
+
 
 </body>
 

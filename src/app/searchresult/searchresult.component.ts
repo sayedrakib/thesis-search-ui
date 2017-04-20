@@ -18,7 +18,7 @@ export class SearchresultComponent {
   private fullText = 0; // !!!!!!
 
  ngAfterContentChecked(){
-  
+   
  }
 
 }

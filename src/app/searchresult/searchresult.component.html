@@ -36,36 +36,3 @@
   </tbody>
 </table>
 
-
-<!--
-  <div *ngIf="searchResults">
-    <p>Total results: {{searchResults.length}}</p>
-  </div>
-
-  <clr-datagrid [clrDgLoading]="loading">
-
-    <clr-dg-column [clrDgField]="'thesis_type_label'">Tyyppi</clr-dg-column>
-    <clr-dg-column [clrDgField]="'first_authors'">Tekijä</clr-dg-column>
-    <clr-dg-column [clrDgField]="'full_title'">Otsikko</clr-dg-column>
-    <clr-dg-column [clrDgField]="'publishing_date'">Julkaistu</clr-dg-column>
-    <clr-dg-column [clrDgField]="'fulltext_url'">Full-Text</clr-dg-column>
-
-
-    <clr-dg-row *clrDgItems="let item of searchResults">
-
-      <clr-dg-cell> {{item.thesis_type_label}} </clr-dg-cell>
-      <clr-dg-cell> {{item.first_authors}} </clr-dg-cell>
-      <clr-dg-cell> <a href="{{item.catalogue_url}}" target="_blank">{{item.full_title}}</a> </clr-dg-cell>
-      <clr-dg-cell> {{item.publishing_date}} </clr-dg-cell>
-      <clr-dg-cell>
-        <a *ngIf="item.fulltext_url.length > 0" href="{{item.fulltext_url}}" target="_blank">
-          <clr-icon shape="file"></clr-icon>
-        </a>
-      </clr-dg-cell>
-    </clr-dg-row>
-
-    <clr-dg-footer *ngIf="searchResults">{{searchResults.length}} items</clr-dg-footer>
-
-
-  </clr-datagrid>
--->

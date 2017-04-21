@@ -24,7 +24,7 @@ export class SearchformComponent {
 		private _http: Http) { }
 
 	private disciplineList = [];
-	private disciplines: IMultiSelectOption[];
+	public disciplines: IMultiSelectOption[];
 
 
 	ngOnInit() {
@@ -52,24 +52,24 @@ export class SearchformComponent {
 			});
 	}
 
-	private methods: IMultiSelectOption[];
-	private textInput: string = "";
-	private selected_methods: string[] = [];
-	private selected_disciplines: string[] = [];
-	private selected_levels: string[] = ["master", "bachelor", "doctoral", "other"];
+	public methods: IMultiSelectOption[];
+	public textInput: string = "";
+	public selected_methods: string[] = [];
+	public selected_disciplines: string[] = [];
+	public selected_levels: string[] = ["master", "bachelor", "doctoral", "other"];
 	//private methods: IMultiSelectOption[] = this.methodListService.getMethods();
 	//private disciplines: IMultiSelectOption[] = this.disciplineService.getDisciplines();
-	private levels: IMultiSelectOption[] = [
+	public levels: IMultiSelectOption[] = [
 		{ id: "master", name: "Pro gradu -työ" },
 		{ id: "bachelor", name: "Kandidaatintyö" },
 		{ id: "doctoral", name: "Väitöskirja" },
 		{ id: "other", name: "Muu opinnäyte" }
 	];
-	private level_ms: boolean = true;
-	private level_ds: boolean = true;
-	private year_from: string = '2009';
-	private year_to: string = '2010';
-	private fulltext: boolean = false;
+	//private level_ms: boolean = true;
+	//private level_ds: boolean = true;
+	public year_from: string = '2009';
+	public year_to: string = '2010';
+	public fulltext: boolean = false;
 	private params = new URLSearchParams('', new QueryEncoder());
 
 	private searchParameters: string;
@@ -123,25 +123,26 @@ export class SearchformComponent {
 	}
 
 	show_selected_criteria: boolean = false;
+	show_selections: boolean = false;
 
-	private defaultTitle_method: IMultiSelectTexts = {
+	public defaultTitle_method: IMultiSelectTexts = {
 		defaultTitle: 'Checked none'
 	};
 
-	private defaultTitle_discipline: IMultiSelectTexts = {
+	public defaultTitle_discipline: IMultiSelectTexts = {
 		defaultTitle: 'Checked none'
 	};
 
-	private defaultTitle_level: IMultiSelectTexts = {
+	public defaultTitle_level: IMultiSelectTexts = {
 		defaultTitle: 'Checked none'
 	};
 
-	private settings_forSearch: IMultiSelectSettings = {
+	public settings_forSearch: IMultiSelectSettings = {
 		enableSearch: true,
 		dynamicTitleMaxItems: 0,
 	};
 
-	private settings_forCheckAll: IMultiSelectSettings = {
+	public settings_forCheckAll: IMultiSelectSettings = {
 		checkedStyle: 'glyphicon',
 		showCheckAll: true,
 		showUncheckAll: true,

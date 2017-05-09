@@ -2,9 +2,7 @@
   <link rel="stylesheet" href="../../../node_modules/clarity-icons/clarity-icons.min.css">
   <link rel="stylesheet" href="../../../node_modules/clarity-ui/clarity-ui.min.css">
   -->
-
-
-<p *ngIf="searchResults" class="results-length">Total results: {{searchResults.length}} </p>
+<p *ngIf="searchResults" class="results-length">{{resutlStatus}}  </p>
 
 <table class="sortable-theme-bootstrap" data-sortable>
 
@@ -34,4 +32,6 @@
 
   </tbody>
 </table>
+
+
 

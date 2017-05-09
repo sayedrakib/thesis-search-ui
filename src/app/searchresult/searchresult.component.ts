@@ -13,9 +13,20 @@ export class SearchresultComponent {
   constructor(private searchresultService: SearchresultService) { }
 
   @Input() searchResults: Array<Item>;
- 
 
-  private fullText = 0; // !!!!!!
+resutlStatus;
+  //private fullText = 0;
+
+ngOnChanges(changes){
+  console.log("ghtht: " + JSON.stringify(changes));
+    if(this.searchResults){
+      if(this.searchResults.length > 900){
+       this.resutlStatus = "You've got more than 1000 results, please make more specific search, thanks !" ;
+    } else {
+     this.resutlStatus = "Total results: " + this.searchResults.length ;
+    }
+  }
+}
 
  ngAfterContentChecked(){
    

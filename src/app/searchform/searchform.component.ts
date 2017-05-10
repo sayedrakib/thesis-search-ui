@@ -21,17 +21,9 @@ export class SearchformComponent {
 
 	constructor(private methodListService: MethodService,
 		private disciplineService: DisciplineService,
-		private _http: Http) { 
-		
-		for (var t = this.yearFrom_begin; t <= this.yearFrom_to; t++ ){
-			this.yearFrom.push({id: t.toString(), name: t.toString()});
-		
-		}
-	console.log(" let ss "+ JSON.stringify(this.yearFrom));	
+		private _http: Http) { }
 
-		}
-
-	public yearFrom = [] ;
+	public yearFrom = [];
 	public yearFrom_begin = 1920;
 	public yearFrom_to = 2020;
 	public selected_yearFrom: string[] = ["1999"];
@@ -66,13 +58,17 @@ export class SearchformComponent {
 					return eachObject;
 				})
 			});
+
+		for (var t = this.yearFrom_begin; t <= this.yearFrom_to; t++) {
+			this.yearFrom.push({ id: t.toString(), name: t.toString() });
+		}
 	}
 
-	
+
 	public textInput: string = "";
 	public selected_methods: string[] = [];
 	public selected_disciplines: string[] = [];
-	public selected_levels: string[] = ["master", "bachelor", "doctoral","licentiate","other"];
+	public selected_levels: string[] = ["master", "bachelor", "doctoral", "licentiate", "other"];
 	//private methods: IMultiSelectOption[] = this.methodListService.getMethods();
 	//private disciplines: IMultiSelectOption[] = this.disciplineService.getDisciplines();
 	public levels: IMultiSelectOption[] = [
@@ -129,7 +125,7 @@ export class SearchformComponent {
 
 		console.log("Concatenated search parameters = " + this.params.toString());
 
-		
+
 
 		this.searchEvent.emit(this.baseUrl + this.params.toString());
 
@@ -152,7 +148,7 @@ export class SearchformComponent {
 	public settings_forSearch: IMultiSelectSettings = {
 		enableSearch: true,
 		dynamicTitleMaxItems: 0,
-		// showUncheckAll: true
+		showUncheckAll: true
 	};
 
 	public settings_levels: IMultiSelectSettings = {
@@ -162,9 +158,9 @@ export class SearchformComponent {
 	};
 	public settings_year: IMultiSelectSettings = {
 		selectionLimit: 1,
-  		autoUnselect: true,
-		  checkedStyle: 'glyphicon',
-		  closeOnSelect: true,
+		autoUnselect: true,
+		checkedStyle: 'glyphicon',
+		closeOnSelect: true,
 	}
 
 

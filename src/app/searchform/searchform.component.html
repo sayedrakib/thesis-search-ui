@@ -44,15 +44,23 @@
 
 
 				<div class="from-div col-sm-6">
-					<label>From</label>
-					<div class="year-from"> <input [(ngModel)]="year_from" type="number" class="btn btn-default" name="year_from" min="1920" max="2025" placeholder="Year">
+					<div><label>From</label></div>
+					<div>
+						<ss-multiselect-dropdown style="display: inline-block" [(ngModel)]="selected_yearFrom" name="yearFrom" [options]="yearFrom"
+							[settings]="settings_year" [texts]="defaultTitle_discipline"></ss-multiselect-dropdown>
 					</div>
+					<!--<div class="year-from"> <input [(ngModel)]="year_from" type="number" class="btn btn-default" name="year_from" min="1920" max="2025" placeholder="Year">
+					</div>-->
 				</div>
 
 				<div class="to-div col-sm-6">
-					<label>To</label>
-					<div class="year-to"> <input [(ngModel)]="year_to" type="number" class="btn btn-default" name="year_to" min="1920" max="2025" placeholder="year">
+					<div><label>To</label></div>
+					<div>
+						<ss-multiselect-dropdown style="display: inline-block" [(ngModel)]="selected_yearTo" name="yearTo" [options]="yearFrom"
+							[settings]="settings_year" [texts]="defaultTitle_discipline"></ss-multiselect-dropdown>
 					</div>
+					<!--<div class="year-to"> <input [(ngModel)]="year_to" type="number" class="btn btn-default" name="year_to" min="1920" max="2025" placeholder="year">
+					</div> -->
 				</div>
 
 
@@ -64,39 +72,33 @@
 				<label> Full-Text Online  </label>
 			</div>
 		</div>
-<div > 
-	<ss-multiselect-dropdown style="display: inline-block" [(ngModel)]="selected_yearFrom" name="yearFrom" [options]="yearFrom" [settings]="settings_year"
-		[texts]="defaultTitle_discipline"></ss-multiselect-dropdown>
 
-	<ss-multiselect-dropdown style="display: inline-block" [(ngModel)]="selected_yearTo" name="yearTo" [options]="yearFrom" [settings]="settings_year"
-		[texts]="defaultTitle_discipline"></ss-multiselect-dropdown>
-
-</div>
 	</form>
 
+	<div class="show-hide-link">
+		<a (click)="show_selections = !show_selections">
+			<span *ngIf="!show_selections" class="glyphicon glyphicon-chevron-right"></span>
+			<span *ngIf="show_selections" class="glyphicon glyphicon-chevron-down"></span> Selected options
+		</a>
+	</div> 
 
+	<div *ngIf="show_selections" class="search-criteria" name="divToggle">
 
+		<div>
+			<dl>
+				<dt *ngIf="selected_methods[0]">Methods</dt>
+		
+				<dd class="dd-selected-options" *ngFor="let method of selected_methods"> {{method}}</dd>
 
+				<dt *ngIf="selected_disciplines[0]">Disciplines</dt>
 
-		<div class="show-hide-link">
-			<a (click)="show_selections = !show_selections"> {{show_selections ? '*Selected search criteria (Hide) 	
-<span class="glyphicon glyphicon-triangle-top"></span>' : '*Selected search criteria (Show)' <span class="glyphicon glyphicon-triangle-top"></span>}} </a>
+				<dd class="dd-selected-options" *ngFor="let discipline of selected_disciplines"> {{discipline}}</dd>
+
+				<dt *ngIf="selected_levels[0]">Levels</dt>
+
+				<dd class="dd-selected-options" *ngFor="let level of selected_levels">{{level}}</dd>
+			</dl>
 		</div>
-
-		<div *ngIf="show_selections" class="search-criteria" name="divToggle">
-
-			<div>
-				<dl>
-					<dt>Methods</dt>
-					<dd *ngFor="let method of selected_methods"> {{method}}</dd>
-
-					<dt>Disciplines</dt>
-					<dd *ngFor="let discipline of selected_disciplines"> {{discipline}}</dd>
-
-					<dt>Levels</dt>
-					<dd *ngFor="let level of selected_levels">{{level}}</dd>
-				</dl>
-			</div>
-		</div>
+	</div>
 </div>
 <hr>

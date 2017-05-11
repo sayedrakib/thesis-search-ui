@@ -1,7 +1,8 @@
 <!--<ss-multiselect-dropdown [options]="myOptions" [(ngModel)]="selectedOptions" (ngModelChange)="onChange($event)"></ss-multiselect-dropdown>-->
 
 
-<div class="search-form-container">
+<div class="search-cmp-container">
+	<div class="form-container">
 	<form novalidate #queryData="ngForm" (ngSubmit)="goSearch(queryData)">
 		<div class="row">
 
@@ -73,11 +74,12 @@
 		</div>
 
 	</form>
-<hr>
+	</div>
 	<div class="show-hide-link">
-		<a (click)="show_selections = !show_selections"> Selected options
-			<span *ngIf="!show_selections" class="glyphicon glyphicon-chevron-left"></span>
+		<a (click)="show_selections = !show_selections"> 
+			<span *ngIf="!show_selections" class="glyphicon glyphicon-chevron-right"></span>
 			<span *ngIf="show_selections" class="glyphicon glyphicon-chevron-down"></span> 
+			Selected options
 		</a>
 	</div> 
 

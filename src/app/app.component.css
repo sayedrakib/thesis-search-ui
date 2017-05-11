@@ -9,10 +9,35 @@
 }
 .header {
     background-color: #002957;
-    color: #fff;
     height: 90px;
     font-size: 20px;
+    width: 100%;
+    vertical-align: center;
 }
+.header .container {
+
+}
+ul-continer {
+    align-items: center;
+}
+.header ul {
+    list-style-type: none;
+    margin-left: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding: 0;
+    overflow: hidden;
+}
+.header li {
+     float: left;
+     display: block;
+     white-space: nowrap;
+}
+.header li a {
+     color: white;
+     
+}
+
 .content {
     padding: 10px;
     padding-bottom: 130px;
@@ -72,6 +97,7 @@
     margin-top: 40px;
     display: block;
     font-weight: bold;
+    white-space: nowrap;
 }
 
 .uni-logo {

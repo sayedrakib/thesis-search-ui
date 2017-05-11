@@ -46,7 +46,7 @@
 				<div class="from-div col-sm-6">
 					<div><label>From</label></div>
 					<div>
-						<ss-multiselect-dropdown style="display: inline-block" [(ngModel)]="selected_yearFrom" name="yearFrom" [options]="yearFrom"
+						<ss-multiselect-dropdown [(ngModel)]="selected_yearFrom" name="yearFrom" [options]="yearFrom"
 							[settings]="settings_year" [texts]="defaultTitle_discipline"></ss-multiselect-dropdown>
 					</div>
 					<!--<div class="year-from"> <input [(ngModel)]="year_from" type="number" class="btn btn-default" name="year_from" min="1920" max="2025" placeholder="Year">
@@ -56,7 +56,7 @@
 				<div class="to-div col-sm-6">
 					<div><label>To</label></div>
 					<div>
-						<ss-multiselect-dropdown style="display: inline-block" [(ngModel)]="selected_yearTo" name="yearTo" [options]="yearFrom"
+						<ss-multiselect-dropdown [(ngModel)]="selected_yearTo" name="yearTo" [options]="yearFrom"
 							[settings]="settings_year" [texts]="defaultTitle_discipline"></ss-multiselect-dropdown>
 					</div>
 					<!--<div class="year-to"> <input [(ngModel)]="year_to" type="number" class="btn btn-default" name="year_to" min="1920" max="2025" placeholder="year">
@@ -66,19 +66,18 @@
 
 			</div>
 			<div class="col-sm-3 checkbox-fulltext">
-
-
+				<div>	<label> Full-Text Online  </label> </div>
 				<input type="checkbox" [(ngModel)]="fulltext" name="fulltext">
-				<label> Full-Text Online  </label>
+			
 			</div>
 		</div>
 
 	</form>
-
+<hr>
 	<div class="show-hide-link">
-		<a (click)="show_selections = !show_selections">
-			<span *ngIf="!show_selections" class="glyphicon glyphicon-chevron-right"></span>
-			<span *ngIf="show_selections" class="glyphicon glyphicon-chevron-down"></span> Selected options
+		<a (click)="show_selections = !show_selections"> Selected options
+			<span *ngIf="!show_selections" class="glyphicon glyphicon-chevron-left"></span>
+			<span *ngIf="show_selections" class="glyphicon glyphicon-chevron-down"></span> 
 		</a>
 	</div> 
 
@@ -101,4 +100,3 @@
 		</div>
 	</div>
 </div>
-<hr>

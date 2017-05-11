@@ -11,20 +11,28 @@ table[data-sortable].sortable-theme-bootstrap {
   color: #002957;
   background: white;
   width: 100%;
+  border: 1px solid lightgrey;
 }
 
 .th-Tyypi {
     width: 13%;
-
+    border-right: 1px solid lightgrey;
 }
 .th-Tekija {
     width: 13%;
+    border-right: 1px solid lightgrey;
 }
+.th-Otsikko {
+    border-right: 1px solid lightgrey;
+}
+
 .th-Julkaisu {
     width: 17%;
+    border-right: 1px solid lightgrey;
 }
 .th-Full-Text {
     width: 12%;
+    border-right: 1px solid lightgrey;
 }
 .results-length {
     text-align: right;

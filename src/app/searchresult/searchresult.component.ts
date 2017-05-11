@@ -14,16 +14,16 @@ export class SearchresultComponent {
 
   @Input() searchResults: Array<Item>;
 
-resutlStatus;
+resultStatus;
   //private fullText = 0;
 
 ngOnChanges(changes){
  // console.log("current/previous value: " + JSON.stringify(changes));
     if(this.searchResults){
       if(this.searchResults.length > 900){
-       this.resutlStatus = "You've got more than 1000 results, please make more specific search, thanks !" ;
+       this.resultStatus = "You've got more than 1000 results, please make more specific search, thanks !" ;
     } else {
-     this.resutlStatus = "Total results: " + this.searchResults.length ;
+     this.resultStatus = "Total results: " + this.searchResults.length ;
     }
   }
 }

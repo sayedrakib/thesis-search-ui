@@ -12,7 +12,7 @@
 
 .search-criteria{
     font-size: 14px;
-    text-align:left;
+    text-align:right;
 }
 
 .text-input {
@@ -25,22 +25,25 @@
 }
 
 .show-hide-link {
-    margin-top: 15px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-align: center;
 }
 
 .show-hide-link a {
     text-decoration: none;
     cursor: pointer;
     color: #002957;
+
 }
 
 hr {
-    margin-top: 5px;
+    margin-top: 10px;
     margin-bottom: 5px;
 }
 
 .checkbox-fulltext { 
-    padding-top: 20px;
+    /*padding-top: 20px;*/
     text-align: center;
 }
 
@@ -60,18 +63,19 @@ hr {
     padding: 0.5em;
   }
   dt {
-    float: left;
-    clear: left;
+    float: right;
+    clear: right;
     width: 70px;
-    text-align: left;
+    text-align: right;
     font-weight: bold;
     color: #002957;
   }
-  dt::after {
+  /*
+  dt::before {
     content: ":";
-  }
+  }*/
   dd {
-    margin: 0 0 0 80px;
+    margin: 0 80px 0 0;
     padding: 0 0 0.5em 0;
   }
 

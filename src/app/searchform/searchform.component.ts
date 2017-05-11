@@ -155,6 +155,7 @@ export class SearchformComponent {
 		checkedStyle: 'glyphicon',
 		showCheckAll: true,
 		showUncheckAll: true,
+		dynamicTitleMaxItems: 0
 	};
 	public settings_year: IMultiSelectSettings = {
 		selectionLimit: 1,

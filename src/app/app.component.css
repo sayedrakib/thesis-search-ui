@@ -12,10 +12,8 @@
     height: 90px;
     font-size: 20px;
     width: 100%;
-    vertical-align: center;
-}
-.header .container {
-
+    display: flex;
+    align-items: center;
 }
 ul-continer {
     align-items: center;
@@ -64,8 +62,9 @@ ul-continer {
 }
 .header .separator {
     color: #f1563f;
+    margin: 0 5px 0 1px;
 }
-
+/*
 .social-links {
     margin-left: 15%;
     height: 120px;
@@ -83,6 +82,7 @@ ul-continer {
 .social-links i {
     color: #f1563f;
 }
+*/
 .uni-name {
     height: 120px;
     font-size: 32px;

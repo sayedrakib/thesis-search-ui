@@ -23,16 +23,14 @@ export class SearchformComponent {
 		private disciplineService: DisciplineService,
 		private _http: Http) { }
 
-	public yearFrom = [];
-	public yearFrom_begin = 1920;
-	public yearFrom_to = 2020;
+	public listofYears = [];
+	public today = new Date();
+	public yearRange_begin = 1920;
+	public yearRange_end = this.today.getFullYear();
 	public selected_yearFrom: string[] = ["1999"];
 	public selected_yearTo: string[] = ["2004"];
-
 	public disciplines: IMultiSelectOption[];
 	public methods: IMultiSelectOption[];
-	public year_from: string = '2009';
-	public year_to: string = '2010';
 
 
 	ngOnInit() {
@@ -59,8 +57,8 @@ export class SearchformComponent {
 				})
 			});
 
-		for (var t = this.yearFrom_begin; t <= this.yearFrom_to; t++) {
-			this.yearFrom.push({ id: t.toString(), name: t.toString() });
+		for (var year = this.yearRange_begin; year <= this.yearRange_end; year++) {
+			this.listofYears.push({ id: year.toString(), name: year.toString() });
 		}
 	}
 

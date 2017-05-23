@@ -15,10 +15,10 @@
     border-left: 5px solid #a94442; /* red */
 }
 
-.search-criteria{
-    font-size: 14px;
-    text-align:left;
-    border: 1px solid lightgray;
+.service-err-msg {
+    text-align: center;
+    font-weight: bold;
+    color: red;
 }
 
 .text-input {
@@ -85,11 +85,8 @@ hr {
     padding: 0 0 0.5em 0;
   }
 
-
-/*  check this definition in Styles.css
-
-button.dropdown-toggle.btn.btn-default {
-    padding-left: 6px !important;
-    padding-right: 6px;
+.selected-options{
+    font-size: 14px;
+    text-align:left;
+    border: 1px solid lightgray;
 }
-*/

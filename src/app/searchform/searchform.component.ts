@@ -31,9 +31,28 @@ export class SearchformComponent {
 	public selected_yearTo: string[] = ["2004"];
 	public disciplines: IMultiSelectOption[];
 	public methods: IMultiSelectOption[];
+	public disabled: boolean = true;
 
+	private handleError(error: Response | any) {
+		console.log('error msg: ' + error);
+	} 
 
 	ngOnInit() {
+
+		this._http.get('https://minerva.lib.jyu.fi/thesis/thesis-api/methods')
+			.map(res => res.json())			
+			.subscribe(data => {
+				this.methods = data.map((eachObject) => {
+					eachObject['id'] = eachObject.name;
+					eachObject['name'] = eachObject.name;
+					//console.log("id: " + eachObject.name + "; name: " + eachObject.id);
+					return eachObject;
+				})
+			});
+	console.log("methods emptyyy!" + this.methods);
+	if(this.methods){
+		console.log("methods empty!" + this.methods);
+	}
 
 		this._http.get('https://minerva.lib.jyu.fi/thesis/thesis-api/disciplines')
 			.map(res => res.json())
@@ -46,16 +65,6 @@ export class SearchformComponent {
 				})
 			});
 
-		this._http.get('https://minerva.lib.jyu.fi/thesis/thesis-api/methods')
-			.map(res => res.json())
-			.subscribe(data => {
-				this.methods = data.map((eachObject) => {
-					eachObject['id'] = eachObject.name;
-					eachObject['name'] = eachObject.name;
-					//console.log("id: " + eachObject.name + "; name: " + eachObject.id);
-					return eachObject;
-				})
-			});
 
 		for (var year = this.yearRange_begin; year <= this.yearRange_end; year++) {
 			this.listofYears.push({ id: year.toString(), name: year.toString() });

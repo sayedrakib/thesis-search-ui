@@ -15,12 +15,6 @@
     border-left: 5px solid #a94442; /* red */
 }
 
-.service-err-msg {
-    text-align: center;
-    font-weight: bold;
-    color: red;
-}
-
 .text-input {
    margin-top: 10px;
 }

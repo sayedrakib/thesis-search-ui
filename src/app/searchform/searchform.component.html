@@ -2,19 +2,22 @@
 
 
 <div class="search-cmp-container">
+
+			<div *ngIf="!methods" class=" alert alert-danger"> Oops ! something went wrong, please contact librarians! </div>
+
+
 	<div class="form-container">
 		<form novalidate #queryData="ngForm" (ngSubmit)="goSearch(queryData)">
 
-			<div *ngIf="!methods" class="service-err-msg"> Oops ! something went wrong, please contact librarians! </div>
 
 			<div class="row">
 
 				<div class="col-sm-9">
-					<input [(ngModel)]="textInput" type="search" pattern="[a-zäöåA-ZÄÖÅ0-9-\s]+" class="form-control text-input" name="searchText"
+					<input  [(ngModel)]="textInput" type="search" pattern="[a-zäöåA-ZÄÖÅ0-9-\s]+" class="form-control text-input" name="searchText"
 						#searchText="ngModel" minlength="3" maxlength="100" placeholder="Type what you want to search for...">
 				</div>
 				<div class="col-sm-3">
-					<button type="submit" class="btn btn-default center-block btn-block search-btn">Search</button>
+					<button [disabled]="disabled"  type="submit" class="btn btn-default center-block btn-block search-btn">Search</button>
 				</div>
 
 			</div>
@@ -25,7 +28,7 @@
 
 					<label>Method(s)</label>
 
-					<ss-multiselect-dropdown [(ngModel)]="selected_methods" name="selected_methods" [options]="methods" [settings]="settings_forSearch"
+					<ss-multiselect-dropdown [disabled]="disabled" [(ngModel)]="selected_methods" name="selected_methods" [options]="methods" [settings]="settings_forSearch"
 						[texts]="defaultTitle_method"></ss-multiselect-dropdown>
 
 				</div>

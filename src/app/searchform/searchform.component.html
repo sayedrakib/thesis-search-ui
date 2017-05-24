@@ -9,7 +9,6 @@
 	<div class="form-container">
 		<form novalidate #queryData="ngForm" (ngSubmit)="goSearch(queryData)">
 
-
 			<div class="row">
 
 				<div class="col-sm-9">
@@ -17,7 +16,7 @@
 						#searchText="ngModel" minlength="3" maxlength="100" placeholder="Type what you want to search for...">
 				</div>
 				<div class="col-sm-3">
-					<button [disabled]="disabled"  type="submit" class="btn btn-default center-block btn-block search-btn">Search</button>
+					<button [disabled]="!methods"  type="submit" class="btn btn-default center-block btn-block search-btn">Search</button>
 				</div>
 
 			</div>
@@ -26,25 +25,25 @@
 			<div class="row">
 				<div class="col-sm-2 text-center ">
 
-					<label>Method(s)</label>
+					<div> <label>Method(s)</label> </div>
 
-					<ss-multiselect-dropdown [disabled]="disabled" [(ngModel)]="selected_methods" name="selected_methods" [options]="methods" [settings]="settings_forSearch"
-						[texts]="defaultTitle_method"></ss-multiselect-dropdown>
-
-				</div>
-				<div class="col-sm-2 text-center">
-					<label> Discipline(s)</label>
-
-					<ss-multiselect-dropdown [(ngModel)]="selected_disciplines" name="selected_disciplines" [options]="disciplines" [settings]="settings_forSearch"
-						[texts]="defaultTitle_discipline"></ss-multiselect-dropdown>
-
+					<div> <ss-multiselect-dropdown [disabled]="!methods" [(ngModel)]="selected_methods" name="selected_methods" [options]="methods" [settings]="settings_forSearch"
+						[texts]="defaultTitle_method"></ss-multiselect-dropdown> </div>
 
 				</div>
 				<div class="col-sm-2 text-center">
-					<label> Level(s)</label>
+					<div><label> Discipline(s)</label></div>
 
-					<ss-multiselect-dropdown [(ngModel)]="selected_levels" name="selected_levels" [options]="levels" [settings]="settings_levels"
-						[texts]="defaultTitle_level"></ss-multiselect-dropdown>
+					<div><ss-multiselect-dropdown [disabled]="!disciplines" [(ngModel)]="selected_disciplines" name="selected_disciplines" [options]="disciplines" [settings]="settings_forSearch"
+						[texts]="defaultTitle_discipline"></ss-multiselect-dropdown></div>
+
+
+				</div>
+				<div class="col-sm-2 text-center">
+					<div> <label> Level(s)</label> </div>
+
+					<div> <ss-multiselect-dropdown [(ngModel)]="selected_levels" name="selected_levels" [options]="levels" [settings]="settings_levels"
+						[texts]="defaultTitle_level"></ss-multiselect-dropdown> </div>
 
 				</div>
 				<div class="col-sm-3 text-center year-div">

@@ -1,13 +1,13 @@
 import { Component, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
 import { URLSearchParams, QueryEncoder } from '@angular/http';
 
-import { MultiselectDropdown, IMultiSelectOption, IMultiSelectSettings, IMultiSelectTexts } from 'angular-2-dropdown-multiselect/src/multiselect-dropdown';
+import { MultiselectDropdown, IMultiSelectOption, IMultiSelectSettings, IMultiSelectTexts } from 'angular-2-dropdown-multiselect';
 
 import { MethodService, Method, DisciplineService, Discipline, Item, SearchresultService } from '../shared/index';
 
 
-import { Http, Response } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
+//import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
 @Component({
@@ -31,28 +31,30 @@ export class SearchformComponent {
 	public selected_yearTo: string[] = ["2004"];
 	public disciplines: IMultiSelectOption[];
 	public methods: IMultiSelectOption[];
-	public disabled: boolean = true;
-
-	private handleError(error: Response | any) {
-		console.log('error msg: ' + error);
-	} 
-
+	public disabled: boolean = false;
+	/*
+		private status;
+		private handleError(error: Response | any) {
+			console.log('error msg: ' + error);
+		}
+	*/
 	ngOnInit() {
 
 		this._http.get('https://minerva.lib.jyu.fi/thesis/thesis-api/methods')
-			.map(res => res.json())			
-			.subscribe(data => {
-				this.methods = data.map((eachObject) => {
-					eachObject['id'] = eachObject.name;
-					eachObject['name'] = eachObject.name;
-					//console.log("id: " + eachObject.name + "; name: " + eachObject.id);
-					return eachObject;
-				})
-			});
-	console.log("methods emptyyy!" + this.methods);
-	if(this.methods){
-		console.log("methods empty!" + this.methods);
-	}
+			.map(res => res.json())
+			.map((eachObject) => {
+				eachObject['id'] = eachObject.name;
+				eachObject['name'] = eachObject.name;
+				return eachObject;
+			})
+			.subscribe(
+			data => (this.methods = data)
+			);
+
+		/*
+			experimented two different ways for subscribing methods' and disciplines' 
+			http get Response but the task is same.
+		*/
 
 		this._http.get('https://minerva.lib.jyu.fi/thesis/thesis-api/disciplines')
 			.map(res => res.json())
@@ -65,6 +67,10 @@ export class SearchformComponent {
 				})
 			});
 
+		/*
+					if(!this.methods){
+						this.disabled = true;
+					} */
 
 		for (var year = this.yearRange_begin; year <= this.yearRange_end; year++) {
 			this.listofYears.push({ id: year.toString(), name: year.toString() });

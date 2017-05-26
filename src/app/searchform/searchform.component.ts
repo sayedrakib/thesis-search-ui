@@ -32,12 +32,8 @@ export class SearchformComponent {
 	public disciplines: IMultiSelectOption[];
 	public methods: IMultiSelectOption[];
 	public disabled: boolean = false;
-	/*
-		private status;
-		private handleError(error: Response | any) {
-			console.log('error msg: ' + error);
-		}
-	*/
+	public error_msg = false;
+
 	ngOnInit() {
 
 		this._http.get('https://minerva.lib.jyu.fi/thesis/thesis-api/methods')
@@ -48,30 +44,27 @@ export class SearchformComponent {
 				return eachObject;
 			})
 			.subscribe(
-			data => (this.methods = data)
-			);
-
-		/*
-			experimented two different ways for subscribing methods' and disciplines' 
-			http get Response but the task is same.
-		*/
+			data => this.methods = data,
+			error => {
+				this.error_msg = true,
+					console.log("Error happened: " + error)
+			});
 
 		this._http.get('https://minerva.lib.jyu.fi/thesis/thesis-api/disciplines')
 			.map(res => res.json())
-			.subscribe(data => {
-				this.disciplines = data.map((eachObject) => {
-					eachObject['id'] = eachObject.name;
-					eachObject['name'] = eachObject.name;
-					//console.log(eachObject);
-					return eachObject;
-				})
+			.map((eachObject) => {
+				eachObject['id'] = eachObject.name;
+				eachObject['name'] = eachObject.name;
+				return eachObject;
+			})
+			.subscribe(
+			data => this.disciplines = data,
+			error => {
+				this.error_msg = true,
+					console.log("Error happened: " + error)
 			});
 
-		/*
-					if(!this.methods){
-						this.disabled = true;
-					} */
-
+		// Creating year objects for listofYears array 
 		for (var year = this.yearRange_begin; year <= this.yearRange_end; year++) {
 			this.listofYears.push({ id: year.toString(), name: year.toString() });
 		}
@@ -102,8 +95,6 @@ export class SearchformComponent {
 	private baseUrl: string = "https://minerva.lib.jyu.fi/thesis/thesis-api/search/documents?";
 
 	goSearch({value, valid}: { value: any, valid: boolean }) {
-
-
 
 		if (this.textInput != '') {
 			this.params.set('q', this.textInput);
@@ -176,12 +167,5 @@ export class SearchformComponent {
 		checkedStyle: 'glyphicon',
 		closeOnSelect: true,
 	}
-
-
-
-
-
-
-
 
 }

@@ -27,8 +27,8 @@ export class SearchformComponent {
 	public today = new Date();
 	public yearRange_begin = 1920;
 	public yearRange_end = this.today.getFullYear();
-	public selected_yearFrom: string[] = ["1999"];
-	public selected_yearTo: string[] = ["2004"];
+	public selected_yearFrom: string[] = ["1990"];
+	public selected_yearTo: string[] = [this.yearRange_end.toString()];
 	public disciplines: IMultiSelectOption[];
 	public methods: IMultiSelectOption[];
 	public disabled: boolean = false;

@@ -38,31 +38,38 @@ export class SearchformComponent {
 
 		this._http.get('https://minerva.lib.jyu.fi/thesis/thesis-api/methods')
 			.map(res => res.json())
-			.map((eachObject) => {
-				eachObject['id'] = eachObject.name;
-				eachObject['name'] = eachObject.name;
-				return eachObject;
-			})
 			.subscribe(
-			data => this.methods = data,
+			data => {
+				this.methods = data.map((eachObject) => {
+					eachObject['id'] = eachObject.name;
+					eachObject['name'] = eachObject.name;
+					//console.log("methods: " + JSON.stringify(data))
+					return eachObject;
+				})
+			},
 			error => {
 				this.error_msg = true,
 					console.log("Error happened: " + error)
-			});
+			}
+			);
 
 		this._http.get('https://minerva.lib.jyu.fi/thesis/thesis-api/disciplines')
 			.map(res => res.json())
-			.map((eachObject) => {
-				eachObject['id'] = eachObject.name;
-				eachObject['name'] = eachObject.name;
-				return eachObject;
-			})
 			.subscribe(
-			data => this.disciplines = data,
+			data => {
+				this.disciplines = data.map((eachObject) => {
+					eachObject['id'] = eachObject.name;
+					eachObject['name'] = eachObject.name;
+					//console.log("disciplines: "+JSON.stringify(data));
+					return eachObject;
+				})
+			},
 			error => {
 				this.error_msg = true,
 					console.log("Error happened: " + error)
-			});
+			}
+
+			);
 
 		// Creating year objects for listofYears array 
 		for (var year = this.yearRange_begin; year <= this.yearRange_end; year++) {

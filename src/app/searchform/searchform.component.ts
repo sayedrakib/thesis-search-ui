@@ -134,7 +134,7 @@ export class SearchformComponent {
 		var fulltextOption = this.fulltext ? 1 : 0;
 		this.params.set('fulltext', fulltextOption.toString());
 
-		console.log("Concatenated search parameters = " + this.params.toString());
+		//console.log("Concatenated search parameters = " + this.params.toString());
 
 
 

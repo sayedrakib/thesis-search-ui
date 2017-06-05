@@ -13,26 +13,56 @@ table[data-sortable].sortable-theme-bootstrap {
   width: 100%;
   border-top: 1px solid lightgray;
   margin-top: 10px; 
-
+ table-layout: fixed; 
+  overflow: hidden;
+  text-align: left;
+}
+table[data-sortable].sortable-theme-bootstrap th {
+    padding-left: 5px;
+}
+table[data-sortable].sortable-theme-bootstrap td {
+    padding-left: 5px;
+    max-width: 0;
+ overflow: hidden; 
+ text-overflow: ellipsis;
 }
 
+#cell-oppiaine ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
 .th-Tyypi {
     width: 13%;
-
 }
+.th-Oppiaine {
+    width: 15%;
+}
+
 .th-Tekija {
     width: 13%;
-
 }
 
 .th-Julkaisu {
-    width: 17%;
+    width: 14%;
 
 }
 .th-Full-Text {
     width: 12%;
-
 }
+
 .results-length {
     text-align: right;
+}
+
+@media (max-width:768px){
+table[data-sortable].sortable-theme-bootstrap {
+  table-layout: auto; 
+}
+}
+
+@media (max-width:400px){
+table[data-sortable].sortable-theme-bootstrap {
+    table-layout: auto; 
+}
 }

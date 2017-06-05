@@ -3,7 +3,7 @@
 
 <div class="search-cmp-container">
 
-			<div *ngIf="error_msg" class=" alert alert-danger"> Oops ! something went wrong, please contact librarians! </div>
+	<div *ngIf="error_msg" class=" alert alert-danger"> Oops ! something went wrong, please contact librarians! </div>
 
 
 	<div class="form-container">
@@ -12,13 +12,17 @@
 			<div class="row">
 
 				<div class="col-sm-9">
-					<input  [(ngModel)]="textInput" type="search" pattern="[a-zäöåA-ZÄÖÅ0-9-\s]+" class="form-control text-input" name="searchText"
+					<input [(ngModel)]="textInput" type="search" pattern="[a-zäöåA-ZÄÖÅ0-9-\s]+" class="form-control text-input" name="searchText"
 						#searchText="ngModel" minlength="3" maxlength="100" placeholder="Type what you want to search for...">
 				</div>
 				<div class="col-sm-3">
-					<button [disabled]="error_msg"  type="submit" class="btn btn-default center-block btn-block search-btn">Search</button>
+					<button [disabled]="error_msg" type="submit" class="btn btn-default center-block btn-block search-btn">Search</button>
 				</div>
-
+				<!--
+				<div class="col-sm-1">
+					<span type="button" class="btn glyphicon glyphicon-info-sign" aria-hidden="true" data-toggle="modal" data-target="#myModal"> </span>
+				</div>
+				-->
 			</div>
 			<br>
 
@@ -27,23 +31,29 @@
 
 					<div> <label>Method(s)</label> </div>
 
-					<div> <ss-multiselect-dropdown [disabled]="!methods" [(ngModel)]="selected_methods" name="selected_methods" [options]="methods" [settings]="settings_forSearch"
-						[texts]="defaultTitle_method"></ss-multiselect-dropdown> </div>
+					<div>
+						<ss-multiselect-dropdown [disabled]="!methods" [(ngModel)]="selected_methods" name="selected_methods" [options]="methods"
+							[settings]="settings_forSearch" [texts]="defaultTitle_method"></ss-multiselect-dropdown>
+					</div>
 
 				</div>
 				<div class="col-sm-2 text-center">
 					<div><label> Discipline(s)</label></div>
 
-					<div><ss-multiselect-dropdown [disabled]="!disciplines" [(ngModel)]="selected_disciplines" name="selected_disciplines" [options]="disciplines" [settings]="settings_forSearch"
-						[texts]="defaultTitle_discipline"></ss-multiselect-dropdown></div>
+					<div>
+						<ss-multiselect-dropdown [disabled]="!disciplines" [(ngModel)]="selected_disciplines" name="selected_disciplines" [options]="disciplines"
+							[settings]="settings_forSearch" [texts]="defaultTitle_discipline"></ss-multiselect-dropdown>
+					</div>
 
 
 				</div>
 				<div class="col-sm-2 text-center">
 					<div> <label> Level(s)</label> </div>
 
-					<div> <ss-multiselect-dropdown [(ngModel)]="selected_levels" name="selected_levels" [options]="levels" [settings]="settings_levels"
-						[texts]="defaultTitle_level"></ss-multiselect-dropdown> </div>
+					<div>
+						<ss-multiselect-dropdown [(ngModel)]="selected_levels" name="selected_levels" [options]="levels" [settings]="settings_levels"
+							[texts]="defaultTitle_level"></ss-multiselect-dropdown>
+					</div>
 
 				</div>
 				<div class="col-sm-3 text-center year-div">
@@ -68,10 +78,14 @@
 
 
 				</div>
-				<div class="col-sm-3 checkbox-fulltext">
+				<div class="col-sm-2 checkbox-fulltext">
 					<div> <label> Full-Text Online  </label> </div>
-					<input type="checkbox" [(ngModel)]="fulltext" name="fulltext">
+					<input class="checkbox-fulltext" type="checkbox" [(ngModel)]="fulltext" name="fulltext">
 
+				</div>
+				<div class="col-sm-1">
+					<div class="label-instruction"> <label>  </label> </div>
+					<span title="Haun käyttöohje ja kuvaus sisällöstä." id="btn-instruction" type="button" class="btn glyphicon glyphicon-info-sign" aria-hidden="true" data-toggle="modal" data-target="#instruction-modal"> </span>
 				</div>
 
 			</div>
@@ -85,6 +99,9 @@
 		</a>
 	</div>
 
+	<!--	<button type="button" class="" data-toggle="modal" data-target="#myModal"><i class="fa fa-info-circle" aria-hidden="true"></i></button> -->
+
+	<!-- div for selected options, hidden/ shown -->
 	<div *ngIf="show_selections" class="selected-options" name="divToggle">
 
 		<div>
@@ -101,6 +118,24 @@
 
 				<dd class="dd-selected-options" *ngFor="let level of selected_levels">{{level}}</dd>
 			</dl>
+		</div>
+	</div>
+	<!-- Modal - instructions for use -->
+	<div id="instruction-modal" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">käyttöohje</h4>
+				</div>
+				<div class="modal-body">
+					<p>Some text in the modal.</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Sulje</button>
+				</div>
+			</div>
+
 		</div>
 	</div>
 </div>

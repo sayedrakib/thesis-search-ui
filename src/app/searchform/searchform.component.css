@@ -2,26 +2,27 @@
     padding-top: 1px;
 }
 .form-container {
-    /*border: 1px solid lightgrey;*/
     border-radius: 3px;
     padding: 2px 8px 12px 8px;
     background-color: #e9e9e9;
 }
+/*
 .ng-valid[required], .ng-valid.required {
-    border-left: 5px solid #42A948; /* green */
+    border-left: 5px solid green; 
 }
 
 .ng-invalid:not(form){
-    border-left: 5px solid #a94442; /* red */
+    border-left: 5px solid red;
 }
-
+*/
 .text-input {
    margin-top: 10px;
 }
 
-.search-btn{
-   border: 1px solid #002957;
+.search-btn{  
    margin-top: 10px;
+    font-weight: bold;
+    color: #002957;
 }
 
 .show-hide-link {
@@ -55,7 +56,13 @@ hr {
 .year-to input{
     max-width: 70px;
     padding-right: 3px;
-
+}
+.checkbox-fulltext {
+    cursor: pointer;
+}
+#btn-instruction {
+    padding-top: 1px;
+    font-size: 16px;
 }
 
   dl {
@@ -83,4 +90,8 @@ hr {
     font-size: 14px;
     text-align:left;
     border: 1px solid lightgray;
+}
+
+@media (max-width:768px){
+
 }

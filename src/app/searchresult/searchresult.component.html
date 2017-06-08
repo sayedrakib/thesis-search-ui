@@ -1,34 +1,29 @@
-<!--
-  <link rel="stylesheet" href="../../../node_modules/clarity-icons/clarity-icons.min.css">
-  <link rel="stylesheet" href="../../../node_modules/clarity-ui/clarity-ui.min.css">
-  -->
-
 <p *ngIf="searchResults" class="results-length">{{resultStatus}} </p>
 
 <table class="sortable-theme-bootstrap" data-sortable>
 
   <thead>
     <tr>
-      <th class="th-Tyypi"> Tyyppi </th>
-      <th class="th-Oppiaine"> Oppiaine </th>
-      <th class="th-Tekija"> Tekijä </th>
-      <th class="th-Otsikko"> Otsikko </th>
-      <th class="th-Julkaisu"> Julkaisu </th>
-      <th class="th-Full-Text"> PDF </th>
+      <th class="th-Tyypi">Taso</th>
+      <th class="th-Oppiaine">Tieteenala</th>
+      <th class="th-Tekija">Tekijä</th>
+      <th class="th-Otsikko">Otsikko</th>
+      <th class="th-Julkaisu">Vuosi</th>
+      <th class="th-Full-Text">PDF</th>
 
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let item of searchResults">
-      <td> {{item.thesis_type_label}} </td>
+      <td>{{item.thesis_type_label}}</td>
       <td id="cell-oppiaine">
         <ul>
-          <li *ngFor="let subject of item.thesis_subjects"> {{subject}} </li>
+          <li *ngFor="let subject of item.thesis_subjects">{{subject}}</li>
         </ul>
       </td>
       <td> {{item.first_authors}} </td>
-      <td> <a href="{{item.catalogue_url}}" target="_blank">{{item.full_title}}</a> </td>
-      <td attr.data-value="{{item.publishing_date}}"> {{item.publishing_date}}</td>
+      <td><a href="{{item.catalogue_url}}" target="_blank">{{item.full_title}}</a> </td>
+      <td attr.data-value="{{item.publishing_date}}">{{item.publishing_date}}</td>
       <td attr.data-value="{{item.fulltext_url}}">
         <a *ngIf="item.fulltext_url.length > 0" href="{{item.fulltext_url}}" target="_blank">
           <i class="fa fa-file-text-o"></i>

@@ -79,11 +79,9 @@ export class SearchformComponent {
 
 
 	public textInput: string = "";
-	public selected_methods: string[] = [];
-	public selected_disciplines: string[] = [];
-	public selected_levels: string[] = ["master", "bachelor", "doctoral", "licentiate", "other"];
-	//private methods: IMultiSelectOption[] = this.methodListService.getMethods();
-	//private disciplines: IMultiSelectOption[] = this.disciplineService.getDisciplines();
+	public selected_methods_ids: string[] = [];
+	public selected_disciplines_ids: string[] = [];
+	public selected_levels_ids: string[] = ["master", "bachelor", "doctoral", "licentiate", "other"];
 	public levels: IMultiSelectOption[] = [
 		{ id: "master", name: "Pro gradu -työ" },
 		{ id: "bachelor", name: "Kandidaatintyö" },
@@ -91,6 +89,25 @@ export class SearchformComponent {
 		{ id: "licentiate", name: "Lisensiaatintyö" },
 		{ id: "other", name: "Muu opinnäyte" }
 	];
+
+	// Get an array of the selected options
+	// "selected_ids" is the array of ids from the selected options 
+	// "options" is the array of all the options
+
+	private filter_selections(selected_ids, options) {
+		let selections;
+		return selections = selected_ids.map(id => {
+			return options.find(obj => {
+				return obj.id == id;
+			})
+		})
+	};
+
+	public selected_levels = this.filter_selections(this.selected_levels_ids, this.levels);
+
+	ngDoCheck() {
+		this.selected_levels = this.filter_selections(this.selected_levels_ids, this.levels);
+	}
 
 	public fulltext: boolean = false;
 	private params = new URLSearchParams('', new QueryEncoder());
@@ -110,20 +127,20 @@ export class SearchformComponent {
 			this.params.delete('q');
 		}
 
-		if (this.selected_levels.length > 0) {
-			this.params.set('thesis_type', this.selected_levels.join());
+		if (this.selected_levels_ids.length > 0) {
+			this.params.set('thesis_type', this.selected_levels_ids.join());
 		} else {
 			this.params.delete('thesis_type');
 		}
 
-		if (this.selected_disciplines.length > 0) {
-			this.params.set('thesis_subjects', this.selected_disciplines.join());
+		if (this.selected_disciplines_ids.length > 0) {
+			this.params.set('thesis_subjects', this.selected_disciplines_ids.join());
 		} else {
 			this.params.delete('thesis_subjects');
 		}
 
-		if (this.selected_methods.length > 0) {
-			this.params.set('methods_in_use', this.selected_methods.join());
+		if (this.selected_methods_ids.length > 0) {
+			this.params.set('methods_in_use', this.selected_methods_ids.join());
 		} else {
 			this.params.delete('methods_in_use');
 		}
@@ -145,15 +162,33 @@ export class SearchformComponent {
 	show_selections: boolean = false;
 
 	public defaultTitle_method: IMultiSelectTexts = {
-		defaultTitle: 'Checked none'
+		defaultTitle: 'Valitse',
+		checkAll: 'Valitse kaikki',
+		uncheckAll: 'Poista valinnat',
+		searchPlaceholder: 'Hae',
+		allSelected: 'Kaikki valittuna',
+		checked: 'valittu',
+		checkedPlural: 'valittuna'
 	};
 
 	public defaultTitle_discipline: IMultiSelectTexts = {
-		defaultTitle: 'Checked none'
+		defaultTitle: 'Valitse',
+		checkAll: 'Valitse kaikki',
+		uncheckAll: 'Poista valinnat',
+		searchPlaceholder: 'Hae',
+		allSelected: 'Kaikki valittuna',
+		checked: 'valittu',
+		checkedPlural: 'valittuna'
 	};
 
 	public defaultTitle_level: IMultiSelectTexts = {
-		defaultTitle: 'Checked none'
+		defaultTitle: 'Valitse',
+		checkAll: 'Valitse kaikki',
+		uncheckAll: 'Poista valinnat',
+		searchPlaceholder: 'Hae',
+		allSelected: 'Kaikki valittuna',
+		checked: 'valittu',
+		checkedPlural: 'valittuna'
 	};
 
 	public settings_forSearch: IMultiSelectSettings = {

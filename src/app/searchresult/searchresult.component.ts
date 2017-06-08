@@ -21,9 +21,9 @@ ngOnChanges(changes){
  // console.log("current/previous value: " + JSON.stringify(changes));
     if(this.searchResults){
       if(this.searchResults.length > 900){
-       this.resultStatus = "You've got more than 1000 results, please make more specific search, thanks !" ;
+       this.resultStatus = "Haku tuotti yli 1000 osumaa, anna tarkemmat hakuehdot." ;
     } else {
-     this.resultStatus = "Total results: " + this.searchResults.length ;
+     this.resultStatus = "Tuloksia yhteensä: " + this.searchResults.length ;
     }
   }
 }

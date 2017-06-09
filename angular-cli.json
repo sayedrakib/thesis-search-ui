@@ -20,7 +20,6 @@
       "styles": ["styles.css", "assets/sortable/sortable-theme-bootstrap.css"],
       "scripts": [
 "assets/sortable/sortable.min.js"
-
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

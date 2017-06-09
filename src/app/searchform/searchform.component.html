@@ -32,7 +32,7 @@
 					<div> <label>Method(s)</label> </div>
 
 					<div>
-						<ss-multiselect-dropdown [disabled]="!methods" [(ngModel)]="selected_methods" name="selected_methods" [options]="methods"
+						<ss-multiselect-dropdown [disabled]="!methods" [(ngModel)]="selected_methods_ids" name="selected_methods" [options]="methods"
 							[settings]="settings_forSearch" [texts]="defaultTitle_method"></ss-multiselect-dropdown>
 					</div>
 
@@ -41,7 +41,7 @@
 					<div><label> Discipline(s)</label></div>
 
 					<div>
-						<ss-multiselect-dropdown [disabled]="!disciplines" [(ngModel)]="selected_disciplines" name="selected_disciplines" [options]="disciplines"
+						<ss-multiselect-dropdown [disabled]="!disciplines" [(ngModel)]="selected_disciplines_ids" name="selected_disciplines" [options]="disciplines"
 							[settings]="settings_forSearch" [texts]="defaultTitle_discipline"></ss-multiselect-dropdown>
 					</div>
 
@@ -51,7 +51,7 @@
 					<div> <label> Level(s)</label> </div>
 
 					<div>
-						<ss-multiselect-dropdown [(ngModel)]="selected_levels" name="selected_levels" [options]="levels" [settings]="settings_levels"
+						<ss-multiselect-dropdown [(ngModel)]="selected_levels_ids" name="selected_levels" [options]="levels" [settings]="settings_levels"
 							[texts]="defaultTitle_level"></ss-multiselect-dropdown>
 					</div>
 
@@ -99,24 +99,22 @@
 		</a>
 	</div>
 
-	<!--	<button type="button" class="" data-toggle="modal" data-target="#myModal"><i class="fa fa-info-circle" aria-hidden="true"></i></button> -->
-
 	<!-- div for selected options, hidden/ shown -->
 	<div *ngIf="show_selections" class="selected-options" name="divToggle">
 
 		<div>
 			<dl>
-				<dt *ngIf="selected_methods[0]">Methods</dt>
+				<dt *ngIf="selected_methods_ids[0]">Methods</dt>
 
-				<dd class="dd-selected-options" *ngFor="let method of selected_methods"> {{method}}</dd>
+				<dd class="dd-selected-options" *ngFor="let method_id of selected_methods_ids"> {{method_id}}</dd>
 
-				<dt *ngIf="selected_disciplines[0]">Disciplines</dt>
+				<dt *ngIf="selected_disciplines_ids[0]">Disciplines</dt>
 
-				<dd class="dd-selected-options" *ngFor="let discipline of selected_disciplines"> {{discipline}}</dd>
+				<dd class="dd-selected-options" *ngFor="let discipline_id of selected_disciplines_ids"> {{discipline_id}}</dd>
 
-				<dt *ngIf="selected_levels[0]">Levels</dt>
+				<dt *ngIf="selected_levels_ids[0]">Levels</dt>
 
-				<dd class="dd-selected-options" *ngFor="let level of selected_levels">{{level}}</dd>
+				<dd class="dd-selected-options" *ngFor="let level of selected_levels">{{level.name}}</dd>
 			</dl>
 		</div>
 	</div>
@@ -132,7 +130,7 @@
 					<p>Some text in the modal.</p>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Sulje</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 				</div>
 			</div>
 

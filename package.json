@@ -31,6 +31,7 @@
     "core-js": "^2.4.1",
     "mutationobserver-shim": "^0.3.2",
     "ng2-bootstrap": "^1.1.16-9",
+    "ngx-progressbar": "^2.0.3",
     "rxjs": "^5.0.1",
     "ts-helpers": "^1.1.1",
     "typescript": "^2.3.3",

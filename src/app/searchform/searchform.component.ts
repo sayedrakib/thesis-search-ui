@@ -2,7 +2,7 @@ import { Component, Output, EventEmitter, ViewEncapsulation } from '@angular/cor
 import { URLSearchParams, QueryEncoder } from '@angular/http';
 
 import { MultiselectDropdown, IMultiSelectOption, IMultiSelectSettings, IMultiSelectTexts } from 'angular-2-dropdown-multiselect';
-
+import { NgProgressService } from 'ngx-progressbar';
 import { MethodService, Method, DisciplineService, Discipline, Item, SearchresultService } from '../shared/index';
 
 
@@ -21,7 +21,8 @@ export class SearchformComponent {
 
 	constructor(private methodListService: MethodService,
 		private disciplineService: DisciplineService,
-		private _http: Http) { }
+		private _http: Http, 
+		public progressService: NgProgressService) { }
 
 	public listofYears = [];
 	public today = new Date();
@@ -119,6 +120,7 @@ export class SearchformComponent {
 	private baseUrl: string = "https://minerva.lib.jyu.fi/thesis/thesis-api/search/documents?";
 
 	goSearch({value, valid}: { value: any, valid: boolean }) {
+
 
 		if (this.textInput != '') {
 			this.params.set('q', this.textInput);

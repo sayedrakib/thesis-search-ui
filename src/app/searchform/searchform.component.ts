@@ -2,7 +2,7 @@ import { Component, Output, EventEmitter, ViewEncapsulation } from '@angular/cor
 import { URLSearchParams, QueryEncoder } from '@angular/http';
 
 import { MultiselectDropdown, IMultiSelectOption, IMultiSelectSettings, IMultiSelectTexts } from 'angular-2-dropdown-multiselect';
-import { NgProgressService } from 'ngx-progressbar';
+// import { NgProgressService } from 'ngx-progressbar';
 import { MethodService, Method, DisciplineService, Discipline, Item, SearchresultService } from '../shared/index';
 
 
@@ -14,7 +14,7 @@ import 'rxjs/add/operator/map';
 	selector: 'app-searchform',
 	templateUrl: './searchform.component.html',
 	styleUrls: ['./searchform.component.css'],
-	encapsulation: ViewEncapsulation.Emulated
+	encapsulation: ViewEncapsulation.None
 
 })
 export class SearchformComponent {
@@ -22,7 +22,8 @@ export class SearchformComponent {
 	constructor(private methodListService: MethodService,
 		private disciplineService: DisciplineService,
 		private _http: Http, 
-		public progressService: NgProgressService) { }
+		//public progressService: NgProgressService
+		) { }
 
 	public listofYears = [];
 	public today = new Date();

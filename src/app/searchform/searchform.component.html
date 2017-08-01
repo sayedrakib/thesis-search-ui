@@ -16,7 +16,9 @@
 						#searchText="ngModel" minlength="3" maxlength="100">
 				</div>
 				<div class="col-sm-3">
-					<button [disabled]="error_msg" type="submit" class="btn btn-default center-block btn-block search-btn">Hae</button>
+					<button [disabled]="error_msg" type="submit" class="btn btn-default center-block btn-block search-btn">Hae 
+						<ng-progress  [thick]="false" [positionUsing]="'translate3d'"></ng-progress>
+					</button>
 				</div>
 				<!--
 				<div class="col-sm-1">
@@ -92,8 +94,6 @@
 
 		</form>
 	</div>
-
-<ng-progress  [thick]="true" [positionUsing]="'translate3d'"></ng-progress>
 
 	<div class="show-hide-link">
 		<a (click)="show_selections = !show_selections">

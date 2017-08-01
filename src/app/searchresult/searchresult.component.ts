@@ -5,8 +5,9 @@ import { MethodService, Method, DisciplineService, Discipline, Item, Searchresul
 @Component({
   selector: 'app-searchresult',
   templateUrl: './searchresult.component.html',
-  styleUrls: ['./searchresult.component.css'],
-  encapsulation: ViewEncapsulation.Emulated
+  styleUrls: ['./searchresult.component.css', "../../assets/progress-bar.css"],
+  //styles: ['@import "../../assets/progress-bar.css"'],
+  encapsulation: ViewEncapsulation.None
 })
 export class SearchresultComponent {
 

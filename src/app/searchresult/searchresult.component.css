@@ -55,6 +55,8 @@ table[data-sortable].sortable-theme-bootstrap td {
     text-align: right;
 }
 
+
+
 @media (max-width:768px){
 table[data-sortable].sortable-theme-bootstrap {
   table-layout: auto; 

@@ -12,7 +12,7 @@ import { NgProgressService } from 'ngx-progressbar';
 })
 export class AppComponent {
 
-	constructor(private searchresultService: SearchresultService, 
+	constructor(private searchresultService: SearchresultService,
 		public progressService: NgProgressService) { }
 
 	searchResults: Array<Item>;
@@ -20,11 +20,12 @@ export class AppComponent {
 	search(url: any) {
 
 		this.progressService.start();
-		
+
 		this.searchresultService.search(url).subscribe(
 			data => this.searchResults = data,
 			error => console.log("Error message: " + error)
-		)       
+		)
+
 		this.progressService.done();
 	}
 

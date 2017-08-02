@@ -5,8 +5,7 @@ import { MethodService, Method, DisciplineService, Discipline, Item, Searchresul
 @Component({
   selector: 'app-searchresult',
   templateUrl: './searchresult.component.html',
-  styleUrls: ['./searchresult.component.css', "../../assets/progress-bar.css"],
-  //styles: ['@import "../../assets/progress-bar.css"'],
+  styleUrls: ['./searchresult.component.css'],
   encapsulation: ViewEncapsulation.None
 })
 export class SearchresultComponent {
@@ -15,23 +14,21 @@ export class SearchresultComponent {
 
   @Input() searchResults: Array<Item>;
 
-resultStatus;
-  //private fullText = 0;
+  resultStatus;
 
-ngOnChanges(changes){
- // console.log("current/previous value: " + JSON.stringify(changes));
-    if(this.searchResults){
-      if(this.searchResults.length > 900){
-       this.resultStatus = "Haku tuotti yli 1000 osumaa, anna tarkemmat hakuehdot." ;
-    } else {
-     this.resultStatus = "Tuloksia yhteensä: " + this.searchResults.length ;
+  ngOnChanges(changes) {
+    if (this.searchResults) {
+      if (this.searchResults.length > 900) {
+        this.resultStatus = "Haku tuotti yli 1000 osumaa, anna tarkemmat hakuehdot.";
+      } else {
+        this.resultStatus = "Tuloksia yhteensä: " + this.searchResults.length;
+      }
     }
   }
-}
 
- ngAfterContentChecked(){
-   
- }
+  ngAfterContentChecked() {
+
+  }
 
 }
 

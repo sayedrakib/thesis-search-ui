@@ -100,5 +100,6 @@ dd {
 .spinner-icon {
     border-top-color: #002957 !important;
     border-left-color: #002957 !important;
+    opacity: 0.5;
 }
 @media (max-width: 768px) {}
